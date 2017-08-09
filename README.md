@@ -23,6 +23,18 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
 
-## Further help
+## Currenta tasks
+Dependency injection
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Angular2-first-look.azurewebsites.net
+
+Http request angular 2
+
+Express on angular 2
+
+https://developer.riotgames.com/static-data.html
+
+http://ddragon.leagueoflegends.com/tool/
+
+https://electron.atom.io/
+ 
