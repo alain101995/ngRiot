@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  imgEndpoint = {
+    name: 'Poro',
+    ep: '588.png'
+  }
 }
