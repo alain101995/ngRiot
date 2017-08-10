@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RiotService } from './riot.service';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  imgEndpoint = {
-    name: 'Poro',
-    ep: '588.png'
+  sid: number;
+  constructor(private riotService: RiotService) {
+    this.sid = 59627;
+    this.riotService.runes(this.sid).then(response => {
+      // (59627, 42)
+      // Hacer algo con la respuesta
+      console.log(response);
+    });
+
   }
+
+
 }
