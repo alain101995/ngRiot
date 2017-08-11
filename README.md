@@ -1,23 +1,13 @@
 
 # Currenta tasks
-Dependency injection
+- Dependency injection
 
-@Injectable() decorator
+- @Injectable() decorator
 
-Constructor
+- Constructor
 
-Angular2-first-look.azurewebsites.net
-
+- Services
 https://electron.atom.io/
- 
-- Profile
-- Leagues
-- Match History
-- Champions
-- Runes
-- Masteries
-- Spells
-
 
 https://angular.io/tutorial/toh-pt1
 
