@@ -7,16 +7,15 @@ import { RiotService } from './riot.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  sid: number;
+  name: any = "59627";
+  response:any;
   constructor(private riotService: RiotService) {
-    this.sid = 59627;
-    this.riotService.runes(this.sid).then(response => {
+    this.riotService.runes(this.name).then(response => {
       // (59627, 42)
       // Hacer algo con la respuesta
+      JSON.stringify(response)
+      this.response = response;
       console.log(response);
     });
-
   }
-
-
 }
