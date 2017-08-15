@@ -35,9 +35,10 @@
   </div>
 </nav>
 
+
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3">Hello, world!</h1>
+    <h1 class="display-3">Main page</h1>
     <p class="lead">Example</p>
     <hr class="my-4" />
     <p>Example 2</p>
@@ -48,20 +49,23 @@
 </div>
 
 
+  <li  *ngFor="let league of leagueData; let i = index">
+    {{leagueData[i].name}} {{leagueData[i].tier}}
+  <!--  <img src="img\bronze.png" /> -->
+
+</li>
+<!--
 <ul>
   <li  *ngFor="let pages of runePages.pages; let i = index">
     {{runePages.pages[i].name}}
 
     <ul>
       <li *ngFor="let pages of runePages.pages; let i = index">
-        {{runePages.pages[0].slots[0].runeSlotId}} <!--runeId, runeSlotId-->
         <img  src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/rune/8001.png" title="8001" />
-        <!-- {{runePages.pages[0].slots[0].runeId}}.png" title="8001" /> -->
+         {{runePages.pages[0].slots[0].runeId}}.png" title="8001" />
       </li>
     </ul>
 
   </li>
 </ul>
-<!--
-<img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/{{imgEndpoint.ep}}" />
 -->

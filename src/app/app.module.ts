@@ -11,7 +11,7 @@ import { RiotService } from './riot.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RiotService } from './riot.service';
-import { IRunePages, ISlot } from './types';
+import { IRunePages, ISlot, ILeague } from './types';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,11 +9,12 @@ import { IRunePages, ISlot } from './types';
 export class AppComponent {
   name: number = 59627;
   runePages: IRunePages[];
+  leagueData: ILeague[];
+  //champmData: IChampmData[];
   constructor(private riotService: RiotService) {
-    this.riotService.runes(this.name).then(response => {
+    this.riotService.playerLeague(this.name).then(response => {
       // (59627, 42)
-      // Hacer algo con la respuesta
-      this.runePages = response;
+      this.leagueData = response;
       console.log(response);
     });
   }
