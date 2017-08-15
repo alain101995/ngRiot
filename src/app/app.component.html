@@ -4,6 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -42,26 +43,34 @@
     <p class="lead">Example</p>
     <hr class="my-4" />
     <p>Example 2</p>
-    <p class="lead">
-      <a class="btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
+    <a [routerLink]="['/league']">Route Three</a>
   </div>
 </div>
 
-
-  <li  *ngFor="let league of leagueData; let i = index">
-    {{leagueData[i].name}} {{leagueData[i].tier}}
-  <!--  <img src="img\bronze.png" /> -->
-
-</li>
 <!--
+ Champ Mastery
+<li *ngFor= "let champm of champmData; let i = index">
+  <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/Xayah.png " />
+{{champmData[i].playerId}} {{champmData[i].championId}}
+</li>
+-->
+
+<!--
+player League
+<li *ngFor="let league of leagueData; let i = index">
+  {{leagueData[i].name}} {{leagueData[i].tier}}
+  <img src="assets/img/{{leagueData[i].tier}}.png" />
+</li>
+-->
+
+<!-- rune pages
 <ul>
   <li  *ngFor="let pages of runePages.pages; let i = index">
     {{runePages.pages[i].name}}
 
     <ul>
       <li *ngFor="let pages of runePages.pages; let i = index">
-        <img  src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/rune/8001.png" title="8001" />
+        <img  src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/rune/8001.png" title="8001" />
          {{runePages.pages[0].slots[0].runeId}}.png" title="8001" />
       </li>
     </ul>

@@ -41,3 +41,17 @@ championPointsUntilNextLevel: number;
 chestGranted: boolean;
 tokensEarned: number;
 }
+
+export interface IPlayerMatches {
+  matches: IMatches[];
+}
+export interface IMatches {
+  platformId: string;
+  gameId: number;
+  champion: number;
+  queue: number;
+  season: number;
+  timestamp: number;
+  role: string;
+  lane: string;
+}

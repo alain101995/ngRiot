@@ -6,14 +6,15 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RiotService {
   constructor(private http: Http) { }
+
   // runes(id: number, champid: number)
-  runes(playerId: number) {
+  playerRunes(playerId: number) {
     return this.http
       .get(`http://localhost:3000/api/runes/${playerId}`)
       .map(response => response.json())
       .toPromise();
   }
-  masteries(playerId: number) {
+  playerMasteries(playerId: number) {
     return this.http
     .get(`http://localhost:3000/api/masteries/${playerId}`)
     .map(response => response.json())
@@ -29,6 +30,11 @@ export class RiotService {
     return this.http
     .get(`http://localhost:3000/api/league/${playerId}`)
     .map(response => response.json())
+    .toPromise();
+  }
+  playerMatches(playerId: number) {
+    return this.http
+    .get(`http://localhost:3000/api/matches/${playerId}`)
     .toPromise();
   }
 }
