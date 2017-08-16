@@ -4,27 +4,26 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { routes } from './app.router';
 
 import { HeaderComponent } from './header/header.component';
 import { RiotService } from './riot.service';
-import { LeagueComponent } from './components/league/league.component';
-
-export const routes: Routes = [
-    { path: '', component: AppComponent },
-    { path: 'league', component: LeagueComponent }
-];
+import { LeagueComponent } from './league/league.component';
+import { RunesComponent } from './runes/runes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LeagueComponent
+    LeagueComponent,
+    RunesComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    routes
   ],
   providers: [RiotService],
   bootstrap: [AppComponent]

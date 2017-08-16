@@ -11,7 +11,7 @@
         <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Leagues</a>
+        <a class="nav-link" routerLink="league">Leagues</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Match History</a>
@@ -20,7 +20,7 @@
         <a class="nav-link" href="#">Champions</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Runes</a>
+        <a class="nav-link" routerLink="runes">Runes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Masteries</a>
@@ -43,10 +43,12 @@
     <p class="lead">Example</p>
     <hr class="my-4" />
     <p>Example 2</p>
-    <a [routerLink]="['/league']">Route Three</a>
   </div>
 </div>
 
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
 <!--
  Champ Mastery
 <li *ngFor= "let champm of champmData; let i = index">
