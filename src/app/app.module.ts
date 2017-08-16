@@ -10,13 +10,27 @@ import { HeaderComponent } from './header/header.component';
 import { RiotService } from './riot.service';
 import { LeagueComponent } from './league/league.component';
 import { RunesComponent } from './runes/runes.component';
+import { ChampmComponent } from './champm/champm.component';
+import { MasteriesComponent } from './masteries/masteries.component';
+import { MainComponent } from './main/main.component';
+import { ProfileComponent } from './profile/profile.component';
+import { MatchhistoryComponent } from './matchhistory/matchhistory.component';
+import { SpellsComponent } from './spells/spells.component';
+import { ChampionsComponent } from './champions/champions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LeagueComponent,
-    RunesComponent
+    RunesComponent,
+    ChampmComponent,
+    MasteriesComponent,
+    MainComponent,
+    ProfileComponent,
+    MatchhistoryComponent,
+    SpellsComponent,
+    ChampionsComponent
   ],
   imports: [
     BrowserModule,

@@ -4,29 +4,28 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="profile">Profile </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="league">Leagues</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Match History</a>
+        <a class="nav-link" routerLink="matchhistory">Match History</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Champions</a>
+        <a class="nav-link" routerLink="champions">Champions</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="runes">Runes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Masteries</a>
+        <a class="nav-link" routerLink="masteries">Masteries</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Spells</a>
+        <a class="nav-link"routerLink="spells">Spells</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -36,47 +35,8 @@
   </div>
 </nav>
 
-
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-3">Main page</h1>
-    <p class="lead">Example</p>
-    <hr class="my-4" />
-    <p>Example 2</p>
-  </div>
-</div>
-
 <div class="container">
   <router-outlet></router-outlet>
 </div>
-<!--
- Champ Mastery
-<li *ngFor= "let champm of champmData; let i = index">
-  <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/Xayah.png " />
-{{champmData[i].playerId}} {{champmData[i].championId}}
-</li>
--->
 
-<!--
-player League
-<li *ngFor="let league of leagueData; let i = index">
-  {{leagueData[i].name}} {{leagueData[i].tier}}
-  <img src="assets/img/{{leagueData[i].tier}}.png" />
-</li>
--->
 
-<!-- rune pages
-<ul>
-  <li  *ngFor="let pages of runePages.pages; let i = index">
-    {{runePages.pages[i].name}}
-
-    <ul>
-      <li *ngFor="let pages of runePages.pages; let i = index">
-        <img  src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/rune/8001.png" title="8001" />
-         {{runePages.pages[0].slots[0].runeId}}.png" title="8001" />
-      </li>
-    </ul>
-
-  </li>
-</ul>
--->
