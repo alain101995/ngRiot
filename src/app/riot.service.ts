@@ -10,7 +10,6 @@ export class RiotService {
   public currentPlayer: IPlayer;
   constructor(private http: Http) { }
 
-  // runes(id: number, champid: number)
   playerRunes(playerId: number) { // DONE
     return this.http
       .get(`http://localhost:3000/api/runes/${playerId}`)
@@ -43,6 +42,7 @@ export class RiotService {
   champions() {
     return this.http
     .get(`http://localhost:3000/api/champions`)
+    .map(response => response.json())
     .toPromise();
   }
 }

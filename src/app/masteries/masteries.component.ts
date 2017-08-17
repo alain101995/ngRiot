@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RiotService } from '../riot.service';
-// import { IMasteries } from '../types';
+import { IMasteries } from '../types';
 
 @Component({
   selector: 'app-masteries',
@@ -10,15 +10,16 @@ import { RiotService } from '../riot.service';
 })
 export class MasteriesComponent implements OnInit {
   name =  59627;
-  // masteriesData: IMasteries[];
-  constructor(private riotService: RiotService) {
-    this.riotService.playerLeague(this.name).then(response => {
-      // this.leagueData = response;
-      console.log(response);
-    });
-  }
+  masteriesData: IMasteries[];
+  constructor(
+    private riotService: RiotService
+  ) { }
 
   ngOnInit() {
+    this.riotService.playerMasteries(this.name).then(response => {
+      this.masteriesData = response;
+      console.log(response);
+    });
   }
 
 }
