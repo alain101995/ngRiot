@@ -1,3 +1,7 @@
 <p>
   matchhistory works!
 </p>
+<li *ngFor="let matches of matchesData?.matches; let i = index">
+  {{matchesData?.matches[i]?.champion}} {{matchesData?.matches[i]?.lane}} {{matchesData?.matches[i]?.role}} {{matchesData?.matches[i]?.season}}
+  {{matchesData?.matches[i]?.timestamp | date}}
+</li>

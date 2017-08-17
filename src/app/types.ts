@@ -1,6 +1,4 @@
-export interface IPages {
-  pages: IRunePages[];
-}
+
 export interface IRunePages {
   id: number;
   name: string;

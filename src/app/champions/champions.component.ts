@@ -8,11 +8,11 @@ import { IChampions } from '../types';
 })
 export class ChampionsComponent implements OnInit {
   champions: IChampions[];
-  
+
   constructor(
     private riotService: RiotService,
   ) { }
-  
+
   ngOnInit() {
     this.riotService.champions().then(response => {
       this.champions = response;

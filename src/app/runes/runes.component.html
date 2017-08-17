@@ -1,15 +1,12 @@
 <p>runes works!</p>
 <ul>
-  <li  *ngFor="let pages of runePages.pages; let i = index">
+  <li *ngFor="let pages of runePages.pages; let i = index">
     {{runePages.pages[i].name}}
-
     <ul>
-      <li *ngFor="let pages of runePages.pages; let i = index">
+      <li *ngFor="let pages of runePages.pages[i].slots; let n = index">
         <img  src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/rune/8001.png" title="8001" />
-         {{runePages.pages[0].slots[0].runeId}}.png"
+        {{runePages.pages[i].slots[n].runeId}}.png"
       </li>
     </ul>
-
   </li>
 </ul>
-

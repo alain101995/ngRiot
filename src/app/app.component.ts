@@ -7,7 +7,7 @@ import { IChampmData } from './types';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name =  59627;  // 200038705 accountId 59627 playerId
+  /*name =  59627;  // 200038705 accountId 59627 playerId
 
   champmData: IChampmData[];
   // champmData: IChampmData[];
@@ -17,7 +17,7 @@ export class AppComponent {
       console.log(response);
     });
   }
-  /*swtich(value){
+  swtich(value){
     case(value):
     break
   }*/

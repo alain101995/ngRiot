@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RiotService } from '../riot.service';
-import { IChampmData } from '../types';
+import { IChampmData, IChampions } from '../types';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -9,7 +9,7 @@ import { IChampmData } from '../types';
 export class ProfileComponent implements OnInit {
   name = 59627;  // 200038705 accountId 59627 playerId
   champmData: IChampmData[];
-  champions: any;
+  champions: IChampions[];
   constructor(
     private riotService: RiotService,
   ) { }

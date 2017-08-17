@@ -15,7 +15,6 @@ import { MasteriesComponent } from './masteries/masteries.component';
 import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatchhistoryComponent } from './matchhistory/matchhistory.component';
-import { SpellsComponent } from './spells/spells.component';
 import { ChampionsComponent } from './champions/champions.component';
 
 @NgModule({
@@ -29,7 +28,6 @@ import { ChampionsComponent } from './champions/champions.component';
     MainComponent,
     ProfileComponent,
     MatchhistoryComponent,
-    SpellsComponent,
     ChampionsComponent
   ],
   imports: [

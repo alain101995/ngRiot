@@ -1,4 +1,15 @@
 <p>masteries works!</p>
 
-{{masteriesData?.pages[0]?.id}} {{masteriesData?.pages[0]?.name}} {{masteriesData?.pages[0]?.current}}
+<ul>
+    <li *ngFor="let masteries of masteriesData.pages; let i = index">
+        <a> {{masteriesData?.pages[i].name}}</a>
+        <ul>
+            <li *ngFor="let mymasteries of masteriesData.pages[i].masteries; let n = index">
+                <a> {{masteriesData.pages[i]?.masteries[n]?.id}}  </a><br>
+                <img  src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/mastery/{{masteriesData.pages[i].masteries[n].id}}.png" title="" />
+                
+            </li>
+        </ul>
+    </li>
+</ul>
 <!-- ? = Elvis operator -->

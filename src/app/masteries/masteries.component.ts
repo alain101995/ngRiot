@@ -14,7 +14,6 @@ export class MasteriesComponent implements OnInit {
   constructor(
     private riotService: RiotService
   ) { }
-
   ngOnInit() {
     this.riotService.playerMasteries(this.name).then(response => {
       this.masteriesData = response;

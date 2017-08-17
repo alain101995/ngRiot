@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RiotService } from '../riot.service';
-import { IRunePages, ISlot, IPages } from '../types';
+import { IRunePages, ISlot } from '../types';
 
 @Component({
   selector: 'app-runes',

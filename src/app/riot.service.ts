@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-
 import { IPlayer } from './types';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -16,7 +15,7 @@ export class RiotService {
       .map(response => response.json())
       .toPromise();
   }
-  playerMasteries(playerId: number) {
+  playerMasteries(playerId: number) { // DONE
     return this.http
     .get(`http://localhost:3000/api/masteries/${playerId}`)
     .map(response => response.json())
@@ -37,6 +36,7 @@ export class RiotService {
   playerMatches(playerId: number) {
     return this.http
     .get(`http://localhost:3000/api/matches/${playerId}`)
+    .map(response => response.json())
     .toPromise();
   }
   champions() {

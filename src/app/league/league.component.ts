@@ -7,7 +7,7 @@ import { ILeague } from '../types';
   styleUrls: ['./league.component.css']
 })
 export class LeagueComponent implements OnInit {
-  name = 59627;
+  name = 2101444; // 2101444 59627
   leagueData: ILeague[];
 
 

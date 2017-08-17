@@ -1,7 +1,12 @@
 <p>league works!</p>
 
 <li *ngFor="let league of leagueData; let i = index">
+  <div *ngIf="leagueData">
   {{leagueData[i].name}} {{leagueData[i].tier}}
   <img src="assets/img/{{leagueData[i].tier}}.png" />
   {{leagueData[i].queue}}
+  </div>
+  <div *ngIf="!leagueData">
+    <a>qowuehr</a>
+  </div>
 </li>
