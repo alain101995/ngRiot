@@ -19,10 +19,6 @@ export class ProfileComponent implements OnInit {
       this.champmData = response;
       console.log(response);
     });
-    this.riotService.champions().then(response => {
-      this.champions = response;
-      console.log(response);
-    });
     // Make second request
 
   }

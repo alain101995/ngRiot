@@ -7,22 +7,17 @@ import { IChampmData } from './types';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  /*name =  59627;  // 200038705 accountId 59627 playerId
-
-  champmData: IChampmData[];
-  // champmData: IChampmData[];
+  playerRequest: 'alainlegend';
   constructor(private riotService: RiotService) {
-    this.riotService.champmasterie(this.name).then(response => {
-      this.champmData = response;
+    this.riotService.playerId(this.playerRequest).then(response => {
+      this.riotService.currentPlayer = response;
       console.log(response);
     });
   }
-  swtich(value){
-    case(value):
-    break
-  }*/
-  redirect(summonerName: string){
-    console.log("greetings" + summonerName)
+
+  redirect(summonerName: string) {
+    // this.playerRequest = summonerName;
+    console.log('Greetings ' + summonerName);
   }
 
 }

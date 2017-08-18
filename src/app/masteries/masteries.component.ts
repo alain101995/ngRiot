@@ -9,7 +9,7 @@ import { IMasteries } from '../types';
   styleUrls: ['./masteries.component.css']
 })
 export class MasteriesComponent implements OnInit {
-  name =  59627;
+  name: 943515;
   masteriesData: IMasteries[];
   constructor(
     private riotService: RiotService

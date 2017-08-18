@@ -7,13 +7,14 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RiotService {
   public currentPlayer: IPlayer;
+
   constructor(private http: Http) { }
 
   playerId(playerName: string) {
     return this.http
-    .get(`http://localhost:3000/api/playerid/${playerName}`)
-    .map(response => response.json())
-    .toPromise();
+      .get(`http://localhost:3000/api/playerid/${playerName}`)
+      .map(response => response.json())
+      .toPromise();
   }
   playerRunes(playerId: number) { // DONE
     return this.http
@@ -23,32 +24,33 @@ export class RiotService {
   }
   playerMasteries(playerId: number) { // DONE
     return this.http
-    .get(`http://localhost:3000/api/masteries/${playerId}`)
-    .map(response => response.json())
-    .toPromise();
+      .get(`http://localhost:3000/api/masteries/${playerId}`)
+      .map(response => response.json())
+      .toPromise();
   }
   champmasterie(playerId: number) { // DONE
     return this.http
-    .get(`http://localhost:3000/api/champm/${playerId}`)
-    .map(response => response.json())
-    .toPromise();
+      .get(`http://localhost:3000/api/champm/${playerId}`)
+      .map(response => response.json())
+      .toPromise();
   }
   playerLeague(playerId: number) { // DONE
     return this.http
-    .get(`http://localhost:3000/api/league/${playerId}`)
-    .map(response => response.json())
-    .toPromise();
+      .get(`http://localhost:3000/api/league/${playerId}`)
+      .map(response => response.json())
+      .toPromise();
   }
   playerMatches(accountId: number) { // DONE
     return this.http
-    .get(`http://localhost:3000/api/matches/${accountId}`)
-    .map(response => response.json())
-    .toPromise();
+      .get(`http://localhost:3000/api/matches/${accountId}`)
+      .map(response => response.json())
+      .toPromise();
   }
   champions() {
     return this.http
-    .get(`http://localhost:3000/api/champions`)
-    .map(response => response.json())
-    .toPromise();
+      .get(`assets/champions.json`)
+      .map(response => response.json())
+      .toPromise();
   }
+
 }

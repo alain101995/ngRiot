@@ -1,12 +1,27 @@
-<p>runes works!</p>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Rune</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let pages of runePages?.pages; let i = index">
+        <tr>
+            <td>{{runePages?.pages[i]?.name}}</td>
+            <td *ngFor="let pages of runePages?.pages[i]?.slots; let n = index"><img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/rune/8001.png"></td>
+        </tr>
+    </tbody>
+</table>
+<!--
 <ul>
-  <li *ngFor="let pages of runePages.pages; let i = index">
-    {{runePages.pages[i].name}}
+  <li *ngFor="let pages of runePages?.pages; let i = index">
+    {{runePages?.pages[i]?.name}}
     <ul>
-      <li *ngFor="let pages of runePages.pages[i].slots; let n = index">
+      <li *ngFor="let pages of runePages?.pages[i]?.slots; let n = index">
         <img  src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/rune/8001.png" title="8001" />
-        {{runePages.pages[i].slots[n].runeId}}.png"
+        {{runePages?.pages[i]?.slots[n]?.runeId}}.png"
       </li>
     </ul>
   </li>
 </ul>
+-->
