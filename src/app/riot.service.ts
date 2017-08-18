@@ -9,6 +9,12 @@ export class RiotService {
   public currentPlayer: IPlayer;
   constructor(private http: Http) { }
 
+  playerId(playerName: string) {
+    return this.http
+    .get(`http://localhost:3000/api/playerid/${playerName}`)
+    .map(response => response.json())
+    .toPromise();
+  }
   playerRunes(playerId: number) { // DONE
     return this.http
       .get(`http://localhost:3000/api/runes/${playerId}`)
@@ -33,9 +39,9 @@ export class RiotService {
     .map(response => response.json())
     .toPromise();
   }
-  playerMatches(playerId: number) {
+  playerMatches(accountId: number) { // DONE
     return this.http
-    .get(`http://localhost:3000/api/matches/${playerId}`)
+    .get(`http://localhost:3000/api/matches/${accountId}`)
     .map(response => response.json())
     .toPromise();
   }

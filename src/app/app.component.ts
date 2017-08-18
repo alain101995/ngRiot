@@ -21,4 +21,8 @@ export class AppComponent {
     case(value):
     break
   }*/
+  redirect(summonerName: string){
+    console.log("greetings" + summonerName)
+  }
+
 }
