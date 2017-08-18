@@ -14,7 +14,7 @@ export class LeagueComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.riotService.playerLeague(this.riotService.currentPlayer.id).then(response => {
+    this.riotService.playerLeague(this.name).then(response => {
       this.leagueData = response;
       console.log(response);
     });

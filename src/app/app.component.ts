@@ -15,9 +15,9 @@ export class AppComponent {
     });
   }
 
-  redirect(summonerName: string) {
+ /* redirect(summonerName: string) {
     // this.playerRequest = summonerName;
     console.log('Greetings ' + summonerName);
   }
-
+*/
 }
