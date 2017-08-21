@@ -8,15 +8,14 @@ import { IChampmData } from '../types';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent  { // implements OnInit
-  //playerRequest = 'caberalex';
-  constructor(private riotService: RiotService)
-  { }
+  // playerRequest = 'caberalex';
+  constructor(private riotService: RiotService) { }
 
   redirect(summonerName: string) {
     this.riotService.playerId(summonerName).then(response => {
       this.riotService.currentPlayer = response;
       console.log(response);
-      console.log('Greetings ' + response.name)
+      console.log('Greetings ' + response.name);
     });
   }
 }

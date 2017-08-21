@@ -10,7 +10,7 @@ export class RiotService {
 
   constructor(private http: Http) { }
 
-  playerId(playerName: string) {
+  playerId(playerName: string) { // DONE
     return this.http
       .get(`http://localhost:3000/api/playerid/${playerName}`)
       .map(response => response.json())

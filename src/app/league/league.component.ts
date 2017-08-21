@@ -7,7 +7,7 @@ import { ILeague } from '../types';
   styleUrls: ['./league.component.css']
 })
 export class LeagueComponent implements OnInit {
-  name = 59627; 
+  // name = 59627;
   leagueData: ILeague[];
   constructor(
     private riotService: RiotService,

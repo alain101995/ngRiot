@@ -1,8 +1,16 @@
 <p>
   profile works!
 </p>
-<!-- need key Value -->
 <li *ngFor="let champm of [0,1,2]; let i = index">
-  <img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{champions?.data.Jax.key}}.png"> Champion id: {{champmData[i]?.championId}}
+
+  <div *ngFor="let obj of champions?.data | mypipes">
+
+
+  <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/Blitzcrank.png"> Champion id: {{champmData[i]?.championId}}
   Champion Points: {{champmData[i]?.championPoints}}
+  
+  <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj?.key}}.png" title="{{obj?.title}}"> 
+  {{obj?.key}}
+</div>
 </li> 
+

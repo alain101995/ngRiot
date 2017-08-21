@@ -7,9 +7,8 @@ import { IChampmData } from './types';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  //playerRequest = 'caberalex';
-  constructor(private riotService: RiotService)
-  { }
+  // playerRequest = 'caberalex';
+  constructor(private riotService: RiotService) { }
 
 
   redirect(summonerName: string) {

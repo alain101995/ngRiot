@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RiotService } from '../riot.service';
 import { IChampmData, IChampions } from '../types';
+import { KeysPipe } from '../mypipes.pipe';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -13,18 +14,16 @@ export class ProfileComponent implements OnInit {
   constructor(
     private riotService: RiotService,
   ) { }
-
+// this.riotService.currentPlayer.id
   ngOnInit() {
-    this.riotService.champmasterie(this.riotService.currentPlayer.id).then(response => {
+    this.riotService.champmasterie(59627).then(response => {
       this.champmData = response;
       console.log(response);
     });
-    
+
     this.riotService.champions().then(response => {
       this.champions = response;
       console.log(response);
     });
   }
-    // Make second request
-
   }

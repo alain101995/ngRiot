@@ -16,6 +16,7 @@ import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatchhistoryComponent } from './matchhistory/matchhistory.component';
 import { ChampionsComponent } from './champions/champions.component';
+import { KeysPipe } from './mypipes.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ChampionsComponent } from './champions/champions.component';
     MainComponent,
     ProfileComponent,
     MatchhistoryComponent,
-    ChampionsComponent
+    ChampionsComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

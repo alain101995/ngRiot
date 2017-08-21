@@ -18,7 +18,7 @@ https://stackoverflow.com/questions/44184240/how-to-get-key-value-pairs-from-jso
 
 Ng container ng if
 https://stackoverflow.com/questions/39547858/angular-2-ng-container
-Cheat Sheet
+- Cheat Sheet
 https://angular.io/guide/cheatsheet
 
 https://www.desarrolloweb.com/articulos/directiva-nglass-angular2.html
@@ -27,3 +27,12 @@ https://es.stackoverflow.com/questions/91806/como-hacer-un-re-render-a-un-compon
 
 Bloquear rutas con valor undefined
 Agregar champs con descripción
+
+
+# Iterate on a JSON Object
+https://stackoverflow.com/questions/37046138/how-to-use-ngfor-with-object/37046743#37046743
+https://webcake.co/object-properties-in-angular-2s-ngfor/
+
+# Observables
+
+http://jasonwatmore.com/post/2016/12/01/angular-2-communicating-between-components-with-observable-subject
