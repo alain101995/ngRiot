@@ -6,7 +6,6 @@
 
 - Constructor
 
-- Services
 https://electron.atom.io/
 
 https://angular.io/tutorial/toh-pt1
@@ -21,6 +20,10 @@ Ng container ng if
 https://stackoverflow.com/questions/39547858/angular-2-ng-container
 Cheat Sheet
 https://angular.io/guide/cheatsheet
+
+https://www.desarrolloweb.com/articulos/directiva-nglass-angular2.html
+
+https://es.stackoverflow.com/questions/91806/como-hacer-un-re-render-a-un-componente-de-angular-4
 
 Bloquear rutas con valor undefined
 Agregar champs con descripción
