@@ -9,7 +9,7 @@ import { IRunePages, ISlot } from '../types';
 export class RunesComponent implements OnInit {
   runePages: IRunePages[];
   constructor(private riotService: RiotService) {
-
+    // this.riotService.currentPlayer.id
   }
 
   ngOnInit() {

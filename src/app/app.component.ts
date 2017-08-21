@@ -7,17 +7,15 @@ import { IChampmData } from './types';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  playerRequest: 'alainlegend';
-  constructor(private riotService: RiotService) {
-    this.riotService.playerId(this.playerRequest).then(response => {
+  //playerRequest = 'caberalex';
+  constructor(private riotService: RiotService)
+  { }
+
+
+  redirect(summonerName: string) {
+    this.riotService.playerId(summonerName).then(response => {
       this.riotService.currentPlayer = response;
       console.log(response);
     });
   }
-
- /* redirect(summonerName: string) {
-    // this.playerRequest = summonerName;
-    console.log('Greetings ' + summonerName);
-  }
-*/
 }

@@ -15,7 +15,7 @@ export class MatchhistoryComponent implements OnInit {
     private riotService: RiotService
   ) { }
   ngOnInit() {
-    this.riotService.playerMatches(this.name).then(response => {
+    this.riotService.playerMatches(this.riotService.currentPlayer.accountId).then(response => {
       this.matchesData = response;
       console.log(response);
     });

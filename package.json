@@ -1,5 +1,5 @@
 {
-  "name": "ng-riot",
+  "name": "ls",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -45,5 +45,16 @@
     "ts-node": "~3.0.4",
     "tslint": "~5.3.2",
     "typescript": "~2.3.3"
-  }
+  },
+  "description": "- Dependency injection",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alain101995/ngRiot.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/alain101995/ngRiot/issues"
+  },
+  "homepage": "https://github.com/alain101995/ngRiot#readme"
 }

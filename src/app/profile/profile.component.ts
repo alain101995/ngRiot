@@ -15,11 +15,16 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.riotService.champmasterie(this.name).then(response => {
+    this.riotService.champmasterie(this.riotService.currentPlayer.id).then(response => {
       this.champmData = response;
       console.log(response);
     });
+    
+    this.riotService.champions().then(response => {
+      this.champions = response;
+      console.log(response);
+    });
+  }
     // Make second request
 
   }
-}
