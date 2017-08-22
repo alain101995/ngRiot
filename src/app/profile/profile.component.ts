@@ -9,6 +9,7 @@ import { KeysPipe } from '../mypipes.pipe';
 })
 export class ProfileComponent implements OnInit {
   name = 59627;  // 200038705 accountId 59627 playerId
+  tests = 3;
   champmData: IChampmData[];
   champions: IChampions[];
   constructor(

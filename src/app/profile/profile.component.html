@@ -1,16 +1,18 @@
-<p>
-  profile works!
-</p>
-<li *ngFor="let champm of [0,1,2]; let i = index">
+<div class="container">
+  <div *ngFor="let champm of [0,1,2]; let i = index">
+    <div *ngFor="let obj of champions?.data | mypipes; let n = index">
+      <div *ngIf="n < 1">
 
-  <div *ngFor="let obj of champions?.data | mypipes">
-
-
-  <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/Blitzcrank.png"> Champion id: {{champmData[i]?.championId}}
-  Champion Points: {{champmData[i]?.championPoints}}
-  
-  <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj?.key}}.png" title="{{obj?.title}}"> 
-  {{obj?.key}}
+        <img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/Blitzcrank.png">
+        Champion id: {{champmData[i]?.championId}} Champion Name: {{obj.key}} Champion Points: {{champmData[i]?.championPoints}}
+        <span>Works.</span>
+        <!--img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj?.key}}.png"-->
+      </div>
+    </div>
+  </div>
 </div>
-</li> 
 
+<div *ngFor="let obj of champions?.data | mypipes; let n = index">
+  <img style="vertical-align:middle; float:left;" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/Blitzcrank.png"><br>
+
+</div>

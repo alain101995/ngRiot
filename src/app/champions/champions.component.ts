@@ -10,7 +10,6 @@ import { IChampions } from '../types';
 
 export class ChampionsComponent implements OnInit {
   champions: IChampions[];
-  public arrayOfKeys;
   constructor(
     private riotService: RiotService,
   ) { }

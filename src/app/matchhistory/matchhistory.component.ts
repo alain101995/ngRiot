@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RiotService } from '../riot.service';
-import { IMatches, IPlayerMatches } from '../types';
+import { IMatches, IChampions } from '../types';
 
 @Component({
   selector: 'app-matchhistory',
@@ -10,14 +10,21 @@ import { IMatches, IPlayerMatches } from '../types';
 })
 export class MatchhistoryComponent implements OnInit {
   name = 200211530; // 201033295 Kairozs 200038705 Alainlegend
-  matchesData: any;
+  matchesData: IMatches[];
+  champions: IChampions[];
   constructor(
     private riotService: RiotService
   ) { }
   ngOnInit() {
-    this.riotService.playerMatches(this.riotService.currentPlayer.accountId).then(response => {
+    // this.riotService.currentPlayer.accountId
+    this.riotService.playerMatches(200038705).then(response => {
       this.matchesData = response;
       console.log(response);
     });
+    this.riotService.champions().then(response => {
+      this.champions = response;
+      console.log(response);
+    });
   }
+
 }

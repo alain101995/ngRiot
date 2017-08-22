@@ -1,7 +1,25 @@
-<p>
-  matchhistory works!
-</p>
-<li *ngFor="let matches of matchesData?.matches; let i = index">
-  {{matchesData?.matches[i]?.champion}} {{matchesData?.matches[i]?.lane}} {{matchesData?.matches[i]?.role}} {{matchesData?.matches[i]?.season}}
-  {{matchesData?.matches[i]?.timestamp | date}}
-</li>
+<table class="table table-responsive">
+  <thead>
+    <tr>
+      <th>Champion</th>
+      <th>Lane</th>
+      <th>Role</th>
+      <th>Season</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let matches of matchesData?.matches; let i = index" >
+    <tr>
+      <td *ngFor="let obj of champions?.data | mypipes"><img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj?.key}}.png"></td>
+      <td>{{matchesData?.matches[i]?.lane}}</td>
+      <td>{{matchesData?.matches[i]?.role}}</td>
+      <td>{{matchesData?.matches[i]?.season}}</td>
+      <td>{{matchesData?.matches[i]?.timestamp | date}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!--div *ngFor="let obj of champions?.data | mypipes">
+    <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj?.key}}.png" title="{{obj?.title}}"> 
+    {{obj?.key}}
+</div-->
