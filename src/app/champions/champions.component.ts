@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RiotService } from '../riot.service';
-import { KeysPipe } from '../mypipes.pipe';
+import { KeysPipe } from '../object-keys.pipe';
 import { IChampions } from '../types';
 @Component({
   selector: 'app-champions',

@@ -10,8 +10,8 @@
   </thead>
   <tbody *ngFor="let matches of matchesData?.matches; let i = index" >
     <tr>
-      <td *ngFor="let obj of champions?.data | mypipes"><img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj?.key}}.png"></td>
-      <td>{{matchesData?.matches[i]?.lane}}</td>
+        <td>{{matchesData?.matches[i]?.champion}}</td>
+        <td>{{matchesData?.matches[i]?.lane}}</td>
       <td>{{matchesData?.matches[i]?.role}}</td>
       <td>{{matchesData?.matches[i]?.season}}</td>
       <td>{{matchesData?.matches[i]?.timestamp | date}}</td>
@@ -19,7 +19,7 @@
   </tbody>
 </table>
 
-<!--div *ngFor="let obj of champions?.data | mypipes">
+<!--div *ngFor="let obj of champions?.data | object-keys">
     <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj?.key}}.png" title="{{obj?.title}}"> 
     {{obj?.key}}
 </div-->

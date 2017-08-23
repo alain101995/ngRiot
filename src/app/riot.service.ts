@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RiotService {
   public currentPlayer: IPlayer;
+  public dataChamp;
 
   constructor(private http: Http) { }
 

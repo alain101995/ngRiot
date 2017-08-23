@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RiotService } from '../riot.service';
 import { IChampmData, IChampions } from '../types';
-import { KeysPipe } from '../mypipes.pipe';
+import { KeysPipe } from '../object-keys.pipe';
+import { ForRangePipe } from '../for-range.pipe';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -9,7 +11,6 @@ import { KeysPipe } from '../mypipes.pipe';
 })
 export class ProfileComponent implements OnInit {
   name = 59627;  // 200038705 accountId 59627 playerId
-  tests = 3;
   champmData: IChampmData[];
   champions: IChampions[];
   constructor(

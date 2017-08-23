@@ -13,7 +13,7 @@ export class RunesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.riotService.playerRunes(this.riotService.currentPlayer.id).then(response => {
+    this.riotService.playerRunes(59627).then(response => {
       this.runePages = response;
       console.log(response);
     });
