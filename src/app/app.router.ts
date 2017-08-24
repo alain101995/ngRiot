@@ -12,12 +12,12 @@ import { ChampionsComponent } from './champions/champions.component';
 
 export const router: Routes = [
     { path: '', component: MainComponent },
-    { path: 'profile', component: ProfileComponent },
+    { path: 'profile', component: ProfileComponent }, // DONE
     { path: 'league', component: LeagueComponent }, // DONE
-    { path: 'matchhistory', component: MatchhistoryComponent },
-    { path: 'champions', component: ChampionsComponent },
+    { path: 'matchhistory', component: MatchhistoryComponent }, // DONE
+    { path: 'champions', component: ChampionsComponent }, // DONE
     { path: 'runes', component: RunesComponent }, // DONE
-    { path: 'masteries', component: MasteriesComponent }
+    { path: 'masteries', component: MasteriesComponent } // DONE
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

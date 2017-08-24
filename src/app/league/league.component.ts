@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { RiotService } from '../riot.service';
 import { ILeague } from '../types';
 @Component({
@@ -11,7 +11,7 @@ export class LeagueComponent implements OnInit {
   // name = 59627;
   leagueData: ILeague[];
   constructor(
-    private riotService: RiotService,
+    private riotService: RiotService
   ) { }
 
   ngOnInit() {
@@ -20,10 +20,24 @@ export class LeagueComponent implements OnInit {
       console.log(response);
     });
     */
-    this.riotService.playerLeague(59627)
-    .subscribe(leagueData => this.leagueData = leagueData),
-      error => this.errorMessage = <any>error;
+    this.riotService.searchSubscription().subscribe(data => {
+      this.getLeagueData(data);
+      console.log('Data' , data);
+    });
+
+    console.log('qwer', this.riotService.currentPlayer);
+    if (!this.riotService.currentPlayer) {
+      return;
+    }
 
   }
-
+  getLeagueData(summonerName: string): void {
+    this.riotService.playerLeague(summonerName)
+      .subscribe(
+      leagueData => {
+        console.log('qweiru', leagueData);
+          this.leagueData = leagueData;
+      },
+      error => this.errorMessage = <any>error);
+  }
 }

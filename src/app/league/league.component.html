@@ -1,6 +1,7 @@
 <li *ngFor="let league of leagueData; let i = index">
-  {{leagueData[i].name}} {{leagueData[i].tier}}
-  <img src="assets/img/{{leagueData[i].tier}}.png" /> {{leagueData[i].queue}}
+  {{leagueData[i]?.name}} {{leagueData[i]?.tier}}
+  <img src="assets/img/{{leagueData[i]?.tier}}.png" /> {{leagueData[i]?.queue}}
 
 </li>
 
+{{leagueData | json}}
