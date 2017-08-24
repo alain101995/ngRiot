@@ -7,6 +7,7 @@ import { ILeague } from '../types';
   styleUrls: ['./league.component.css']
 })
 export class LeagueComponent implements OnInit {
+  errorMessage: string;
   // name = 59627;
   leagueData: ILeague[];
   constructor(
@@ -14,10 +15,15 @@ export class LeagueComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.riotService.playerLeague(this.riotService.currentPlayer.id).then(response => {
+    /*this.riotService.playerLeague(this.riotService.currentPlayer.id).then(response => {
       this.leagueData = response;
       console.log(response);
     });
+    */
+    this.riotService.playerLeague(59627)
+    .subscribe(leagueData => this.leagueData = leagueData),
+      error => this.errorMessage = <any>error;
+
   }
 
 }

@@ -3,11 +3,11 @@ import { Http } from '@angular/http';
 import { IPlayer } from './types';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class RiotService {
   public currentPlayer: IPlayer;
-  public dataChamp;
 
   constructor(private http: Http) { }
 
@@ -35,13 +35,14 @@ export class RiotService {
       .map(response => response.json())
       .toPromise();
   }
-  playerLeague(playerId: number) { // DONE
-    return this.http
-      .get(`http://localhost:3000/api/league/${playerId}`)
-      .map(response => response.json())
-      .toPromise();
-  }
-  playerMatches(accountId: number) { // DONE
+  /* playerLeague(playerId: number) { // DONE
+     return this.http
+       .get(`http://localhost:3000/api/league/${playerId}`)
+       .map(response => response.json())
+       .toPromise();
+   } */
+
+   playerMatches(accountId: number) { // DONE
     return this.http
       .get(`http://localhost:3000/api/matches/${accountId}`)
       .map(response => response.json())
@@ -54,4 +55,17 @@ export class RiotService {
       .toPromise();
   }
 
+  playerLeague(): Observable<any> {
+    return this.http
+      .get('http:localhost:3000/api/league/${playerId}`)
+      .do(data => console.log('All: ' + JSON.stringify(data)))
+      .catch(this.handleError);
+    }
+
+    private handleError(err: Error){
+      console.log(err.message);
+      return Observable.throw(err.message);
+    }
+
+    //https://app.pluralsight.com/player?course=angular-2-getting-started-update&author=deborah-kurata&name=angular-2-getting-started-update-m9&clip=4&mode=live
 }
