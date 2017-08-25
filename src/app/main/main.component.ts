@@ -12,10 +12,12 @@ export class MainComponent  { // implements OnInit
   constructor(private riotService: RiotService) { }
 
   redirect(summonerName: string) {
+    /*
     this.riotService.playerId(summonerName).then(response => {
       this.riotService.currentPlayer = response;
       console.log(response);
       console.log('Greetings ' + response.name);
     });
+    */
   }
 }

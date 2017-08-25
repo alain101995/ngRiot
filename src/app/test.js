@@ -826,14 +826,21 @@ let champions = {
     "type": "champion",
     "version": "7.16.1"
 };
-function x (champions){
+function x(champions, num) {
     var json_data = champions;
     var result = [];
-    
-    for(let i in json_data)
-        result.push([i, json_data [i]]);
-    return result; 
+
+
+    result = Object.keys(json_data.data).map(key => Object.assign({ propKey: key }, json_data.data[key]));
+
+    // result esta listo para poder implementar la pipe de los 3 primeros champions
     // objecto a array 
     // regresar 3 primeros champs
+    for (let i = 0; i <= num; i++) {
+        if (i == num){
+            return;
+        }
+        console.log(result[i])
+    }
 }
-console.log(x(champions))
+console.log(x(champions, 3))

@@ -13,16 +13,22 @@ export class AppComponent {
 
 
   redirect(summonerName: string) {
-    this.riotService.onSearch(summonerName);
-    this.riotService.playerId(summonerName);
-    // Hacer llamada a this.riotService.currentPlayer
-    /*
+
+    // this.riotService.playerId(summonerName);
     this.riotService.playerId(summonerName).then(response => {
-      this.riotService.currentPlayer = response;
+
+      this.riotService.onSearch(response);
       console.log(response);
       // window.location.reload();
     });
-    */
+    // Hacer llamada a this.riotService.currentPlayer
+    /*
+ this.riotService.playerId(summonerName).then(response => {
+   this.riotService.currentPlayer = response;
+   console.log(response);
+   // window.location.reload();
+ });
+*/
   }
   /*
     this.riotService.playerId(summonerName)

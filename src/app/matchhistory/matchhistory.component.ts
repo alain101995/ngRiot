@@ -10,8 +10,7 @@ import { IMatches, IChampions } from '../types';
 })
 export class MatchhistoryComponent implements OnInit {
   errorMessage: string;
-  
-  name = 200211530; // 201033295 Kairozs 200038705 Alainlegend
+
   matchesData: IMatches[];
   champions: IChampions[];
   constructor(
@@ -19,20 +18,23 @@ export class MatchhistoryComponent implements OnInit {
   ) { }
   ngOnInit() {
     // this.riotService.currentPlayer.accountId 200038705
-    /*
     this.riotService.playerMatches(this.riotService.currentPlayer.accountId).then(response => {
       this.matchesData = response;
       console.log(response);
     });
-    this.riotService.champions().then(response => {
-      this.champions = response;
-      console.log(response);
-    });
-    */
-    this.riotService.playerMatches(this.riotService.currentPlayer.id)
-    .subscribe(
-    leagueData => this.matchesData = leagueData,
-    error => this.errorMessage = <any>error);
+
+    /*
+        this.riotService.champions().then(response => {
+          this.champions = response;
+          console.log(response);
+        });
+        this.riotService.playerMatches(this.riotService.currentPlayer.id)
+        .subscribe(
+        leagueData => this.matchesData = leagueData,
+        error => this.errorMessage = <any>error);
+         */
   }
 
 }
+
+// Utilizar ngOnDestroy para hacer .unbsubscribe de todos los observables utilizados

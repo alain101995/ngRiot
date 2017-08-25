@@ -6,7 +6,7 @@ export class KeysPipe implements PipeTransform {
         if (!value) {
             return value;
         }
-        return Object.keys(value).map(key => Object.assign({ key }, value[key]));
+        return Object.keys(value).map(key => Object.assign({ propKey: key }, value[key]));
     }
 }
 
