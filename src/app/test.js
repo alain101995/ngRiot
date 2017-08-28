@@ -830,17 +830,18 @@ function x(champions, num) {
     var json_data = champions;
     var result = [];
 
-
     result = Object.keys(json_data.data).map(key => Object.assign({ propKey: key }, json_data.data[key]));
 
     // result esta listo para poder implementar la pipe de los 3 primeros champions
     // objecto a array 
     // regresar 3 primeros champs
     for (let i = 0; i <= num; i++) {
-        if (i == num){
-            return;
-        }
+
         console.log(result[i])
+        i++;
+        if (i == num) {
+            return "Champion not found";
+        }
     }
 }
-console.log(x(champions, 3))
+console.log(x(champions, 136)) // 136

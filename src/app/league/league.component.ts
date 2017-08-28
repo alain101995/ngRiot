@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RiotService } from '../riot.service';
 import { ILeague } from '../types';
 import { Subscription } from 'rxjs/Subscription';
@@ -8,11 +8,9 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './league.component.html',
   styleUrls: ['./league.component.css']
 })
-export class LeagueComponent implements OnInit {
+export class LeagueComponent implements OnInit, OnDestroy {
   errorMessage: string;
-  // name = 59627;
   leagueData: ILeague[];
-
   private subscriptions: Subscription[] = [];
 
   constructor(
@@ -41,6 +39,7 @@ export class LeagueComponent implements OnInit {
     }
 
   }
+
   getLeagueData(playerId: number): void {
     this.subscriptions.push(
       this.riotService.playerLeague(playerId).subscribe(leagueData => {
@@ -49,12 +48,13 @@ export class LeagueComponent implements OnInit {
       }, error => this.errorMessage = <any>error)
     );
   }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(subs =>{
+      console.log("Destroyed")
+      // console.clear();
+      subs.unsubscribe();
+    })
+  }
+
 }
-
-// ngOnDestroy subscripcion.unsubscribe();
-/**
-this.subscriptions.forEach(subs =>{
-  subs.unsubscribe();
-});
-
- */

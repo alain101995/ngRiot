@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RiotService } from '../riot.service';
 import { IChampmData, IChampions } from '../types';
 import { KeysPipe } from '../object-keys.pipe';
@@ -9,7 +9,7 @@ import { ForRangePipe } from '../for-range.pipe';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
   name = 59627;  // 200038705 accountId 59627 playerId
   champmData: IChampmData[];
   champions: IChampions[];
@@ -27,5 +27,8 @@ export class ProfileComponent implements OnInit {
       this.champions = response;
       console.log(response);
     });
+  }
+  ngOnDestroy() {
+    
   }
   }

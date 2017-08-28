@@ -43,13 +43,11 @@ export class RiotService {
     return this.http
       .get(`http://localhost:3000/api/runes/${playerId}`)
       .map(response => response.json())
-      .toPromise();
   }
   playerMasteries(playerId: number) { // DONE
     return this.http
       .get(`http://localhost:3000/api/masteries/${playerId}`)
       .map(response => response.json())
-      .toPromise();
   }
   champmasterie(playerId: number) { // DONE
     return this.http
@@ -67,7 +65,6 @@ export class RiotService {
     return this.http
       .get(`http://localhost:3000/api/matches/${accountId}`)
       .map(response => response.json())
-      .toPromise();
   }
   champions() {
     return this.http
