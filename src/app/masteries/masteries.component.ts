@@ -17,27 +17,27 @@ export class MasteriesComponent implements OnInit, OnDestroy {
   ) { }
   ngOnInit() {
     this.riotService.searchSubscription().subscribe(player => {
-      if(!player){
+      if (!player) {
         return;
       }
-      this.getMasteriesData(player.id)
+      this.getMasteriesData(player.id);
       console.log(player.id);
-  });
-}
+    });
+  }
 
-  getMasteriesData(playerId: number): void{
+  getMasteriesData(playerId: number): void {
     this.subscription.push(
-    this.riotService.playerMasteries(playerId).subscribe(masteriesData => {
-      console.log('Masteries Data ', masteriesData);
-      this.masteriesData = masteriesData;
-    }, error => this.errorMessage = <string>error)
-  );
+      this.riotService.playerMasteries(playerId).subscribe(masteriesData => {
+        console.log('Masteries Data ', masteriesData);
+        this.masteriesData = masteriesData;
+      }, error => this.errorMessage = <string>error)
+    );
   }
 
   ngOnDestroy() {
     this.subscription.forEach(subs => {
-      console.log("Destroyed")
+      console.log('Destroyed');
       subs.unsubscribe();
-    })
+    });
   }
 }

@@ -3,14 +3,12 @@ import { Http } from '@angular/http';
 import { IPlayer } from './types';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class RiotService {
   public currentPlayer: IPlayer;
-
   constructor(private http: Http) { }
 
   // La diferencia entre Subject y BehaviorSubject es que BehaviorSubject
@@ -38,23 +36,24 @@ export class RiotService {
       .toPromise();
   }
 
-
   playerRunes(playerId: number) { // DONE
     return this.http
       .get(`http://localhost:3000/api/runes/${playerId}`)
-      .map(response => response.json())
+      .map(response => response.json());
   }
+
   playerMasteries(playerId: number) { // DONE
     return this.http
       .get(`http://localhost:3000/api/masteries/${playerId}`)
-      .map(response => response.json())
+      .map(response => response.json());
   }
-  champmasterie(playerId: number) { // DONE
+
+  champMasterie(playerId: number) { // DONE
     return this.http
       .get(`http://localhost:3000/api/champm/${playerId}`)
-      .map(response => response.json())
-      .toPromise();
+      .map(response => response.json());
   }
+
   playerLeague(playerId: any) { // DONE
     return this.http
       .get(`http://localhost:3000/api/league/${playerId}`)
@@ -64,8 +63,9 @@ export class RiotService {
   playerMatches(accountId: number) { // DONE
     return this.http
       .get(`http://localhost:3000/api/matches/${accountId}`)
-      .map(response => response.json())
+      .map(response => response.json());
   }
+
   champions() {
     return this.http
       .get(`assets/champions.json`)

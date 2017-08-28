@@ -12,18 +12,11 @@ export class LeagueComponent implements OnInit, OnDestroy {
   errorMessage: string;
   leagueData: ILeague[];
   private subscriptions: Subscription[] = [];
-
   constructor(
     private riotService: RiotService
   ) { }
 
   ngOnInit() {
-    /*
-   this.riotService.playerLeague(this.riotService.currentPlayer.id).then(response => {
-      this.leagueData = response;
-      console.log(response);
-    });
-    */
 
     this.riotService.searchSubscription().subscribe(player => {
       if (!player) {
@@ -38,6 +31,12 @@ export class LeagueComponent implements OnInit, OnDestroy {
       return;
     }
 
+    /*
+this.riotService.playerLeague(this.riotService.currentPlayer.id).then(response => {
+  this.leagueData = response;
+  console.log(response);
+});
+*/
   }
 
   getLeagueData(playerId: number): void {
@@ -50,11 +49,11 @@ export class LeagueComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscriptions.forEach(subs =>{
-      console.log("Destroyed")
+    this.subscriptions.forEach(subs => {
+      console.log('Destroyed');
       // console.clear();
       subs.unsubscribe();
-    })
+    });
   }
 
 }

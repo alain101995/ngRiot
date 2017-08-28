@@ -13,7 +13,7 @@ export class MatchhistoryComponent implements OnInit {
 
   matchesData: IMatches[];
   champions: IChampions[];
-  
+
   private subscriptions: Subscription[] = [];
 
   constructor(

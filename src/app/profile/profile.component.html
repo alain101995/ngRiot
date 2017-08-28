@@ -17,9 +17,19 @@
 
 </div-->
 <div class="container">
-  <div *ngFor="let obj of champions?.data  | objectKeys | forRange: 3">
-    <!--span *ngIf=""></span-->
-      <img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/Jax.png">
-      Champion id: {{champmData[i]?.championId}} Champion Name: {{obj?.key}} Champion Points: {{champmData[i]?.championPoints}}
-  </div>
+
+    <div *ngFor="let champm of champmData; let i = index">
+      <!--div ngIf="let obj of champions?.data | objectKeys[i] = champmData[i].championId">
+
+      </div-->
+        Champion Points: {{champmData[i]?.championPoints}} Champion Level: {{champmData[i]?.championLevel}} Champion ID: {{champmData[i]?.championId}}
+    </div>
+  <!--div *ngFor="let obj of champions?.data  | objectKeys | forRange: 3">
+    Champion: {{obj?.key}}       
+      
+      Champion Name: {{obj?.key}} Champion Points: {{champmData[i]?.championPoints}}
+  </div-->
+  <!--img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/Jax.png"-->
+
+
 </div>

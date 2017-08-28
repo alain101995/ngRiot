@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RiotService } from '../riot.service';
 import { IRunePages, ISlot } from '../types';
 import { Subscription } from 'rxjs/Subscription';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './runes.component.html',
   styleUrls: ['./runes.component.css']
 })
-export class RunesComponent implements OnInit {
+export class RunesComponent implements OnInit, OnDestroy {
   errorMessage: string;
   runePages: IRunePages[];
   private subscription: Subscription[] = [];
@@ -18,11 +18,11 @@ export class RunesComponent implements OnInit {
 
   ngOnInit() {
     this.riotService.searchSubscription().subscribe(player => {
-      if(!player){
+      if (!player) {
         return;
       }
-      this.getRunesData(player.id)
-      console.log(player.id)
+      this.getRunesData(player.id);
+      console.log(player.id);
     });
     /*
     this.riotService.playerRunes(this.riotService.currentPlayer.id).then(response => {
@@ -31,7 +31,7 @@ export class RunesComponent implements OnInit {
     });
     */
   }
-  getRunesData(playerId: number): void{
+  getRunesData(playerId: number): void {
     this.subscription.push(
       this.riotService.playerRunes(playerId).subscribe(runesData => {
         console.log('Runes Data: ', runesData);
@@ -42,8 +42,8 @@ export class RunesComponent implements OnInit {
 
   ngOnDestroy() {
     this.subscription.forEach(subs => {
-      console.log("Destroyed")
+      console.log('Destroyed');
       subs.unsubscribe();
-    })
+    });
   }
 }

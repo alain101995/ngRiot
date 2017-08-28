@@ -8,20 +8,13 @@ import { IChampmData } from './types';
 })
 export class AppComponent {
   errorMessage: string;
-  // playerRequest = 'caberalex';
   constructor(private riotService: RiotService) { }
 
-
-  redirect(summonerName: string) {
-
-    // this.riotService.playerId(summonerName);
+  search(summonerName: string) {
     this.riotService.playerId(summonerName).then(response => {
-
       this.riotService.onSearch(response);
       console.log(response);
-      // window.location.reload();
     });
-    // Hacer llamada a this.riotService.currentPlayer
     /*
  this.riotService.playerId(summonerName).then(response => {
    this.riotService.currentPlayer = response;
