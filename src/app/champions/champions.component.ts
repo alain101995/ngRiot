@@ -10,16 +10,22 @@ import { IChampions } from '../types';
 
 export class ChampionsComponent implements OnInit {
   champions: IChampions[];
+  championId: string;
   constructor(
     private riotService: RiotService,
   ) { }
 
   ngOnInit() {
     this.riotService.champions().then(response => {
-
       this.champions = response;
       console.log(response);
     });
+  }
+
+  getClickedId(clickedChampion: string) {
+    console.log('Clicked Champion', clickedChampion);
+    this.championId = clickedChampion;
+    console.log('Champion ID', this.championId);
   }
 
 }

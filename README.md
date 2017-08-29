@@ -2,6 +2,8 @@
 # Currenta tasks
 - Constructor
 
+https://www.desarrolloweb.com/articulos/directiva-nglass-angular2.html
+
 https://electron.atom.io/
 
 https://angular.io/tutorial/toh-pt1
@@ -14,10 +16,6 @@ https://stackoverflow.com/questions/44184240/how-to-get-key-value-pairs-from-jso
 
 - Cheat Sheet
 https://angular.io/guide/cheatsheet
-
-https://www.desarrolloweb.com/articulos/directiva-nglass-angular2.html
-
-https://es.stackoverflow.com/questions/91806/como-hacer-un-re-render-a-un-componente-de-angular-4
 
 - Popups 
 http://valor-software.com/ngx-bootstrap/#/modals

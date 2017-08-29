@@ -8,24 +8,22 @@
     <tbody *ngFor="let mymasteries of masteriesData?.pages; let i = index">
         <tr>
             <td>{{masteriesData?.pages[i]?.name}}</td>
-            <td *ngFor="let masteries of masteriesData?.pages[i]?.masteries; let n = index"><img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/mastery/{{masteriesData?.pages[i]?.masteries[n]?.id}}.png" title="{{masteriesData?.pages[i]?.masteries[n]?.id}}">{{masteriesData.pages[i]?.masteries[n]?.rank}}</td>
+            <td *ngFor="let masteries of masteriesData?.pages[i]?.masteries; let n = index">
+                <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/mastery/{{masteriesData?.pages[i]?.masteries[n]?.id}}.png" title="{{masteriesData?.pages[i]?.masteries[n]?.id}}"> {{masteriesData.pages[i]?.masteries[n]?.rank}}
+            </td>
         </tr>
     </tbody>
 </table>
 <!--
 <ul>
     <li *ngFor="let masteries of masteriesData.pages; let i = index">
-
         <a> {{masteriesData?.pages[i].name}}</a>
         <ul>
             <li *ngFor="let mymasteries of masteriesData.pages[i].masteries; let n = index">
                 <a> {{masteriesData.pages[i]?.masteries[n]?.id}} <br>{{masteriesData.pages[i]?.masteries[n]?.rank}}  </a>
-                <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/mastery/{{masteriesData.pages[i].masteries[n].id}}.png" title=""
-                />
-
+                <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/mastery/{{masteriesData.pages[i].masteries[n].id}}.png" title=""/>
             </li>
         </ul>
     </li>
 </ul>
 -->
-<!-- ? = Elvis operator -->

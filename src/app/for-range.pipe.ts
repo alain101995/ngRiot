@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ForRangePipe implements PipeTransform {
   transform(value: any[], forTimes: number): number[] {
     const range = [];
-    if (!value && Array.isArray(value)) {
+    if (!value || !Array.isArray(value)) {
       return range;
     }
     if (forTimes > value.length) {
