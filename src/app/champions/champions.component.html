@@ -3,7 +3,7 @@
         <div class="col-9">
             <div *ngFor="let champion of champions?.data | objectKeys; let n = index"> <!-- OrderBy Pipe -->
                 <img style="vertical-align:middle; float:left;" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{champion?.key}}.png"
-                    title="{{champion?.name}}, {{champion?.title}}" class="img-thumbnail">
+                    title="{{champion?.name}}, {{champion?.title}}" id="{{champion?.id}}" class="img-thumbnail">
             </div>
         </div>
         <div class="col-3 sidebar-outer">
