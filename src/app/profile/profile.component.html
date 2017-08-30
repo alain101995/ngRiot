@@ -2,7 +2,7 @@
   <div *ngFor="let champm of champmData | forRange: 3">
     Champion Points: {{champm.championPoints}} Champion Level: {{champm.championLevel}} Champion ID: {{champm.championId}}
     <div *ngFor="let obj of champions.data | objectKeys">
-      <div *ngIf="champm.championId && obj.id">
+      <div *ngIf="champm.championId == obj.id">
         <img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj.key}}.png">
       </div>
     </div>

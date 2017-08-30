@@ -1,12 +1,15 @@
 <div class="container">
   <div *ngFor="let league of leagueData | forRange: 3; let i = index">
-    <div *ngIf="leagueData?.length > 0; else elseBlock">
-      {{league.name}} {{league.tier}}
-      <img src="assets/img/{{leagueData[i]?.tier}}.png" /> {{league.queue}}
-    </div>
-    <ng-template #elseBlock>
+    <div *ngIf="league[i];then ranked else unranked"></div>
+
+    <ng-template #ranked>
+      {{league.name}}{{league.tier}}<img src="assets/img/{{league.tier}}.png" />{{league.queue}}
+    </ng-template>
+
+    <ng-template #unranked>
       <img src="assets/img/UNRANKED.png" />
       <p>DATA NOT FOUND</p>
     </ng-template>
+
   </div>
 </div>
