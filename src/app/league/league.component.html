@@ -1,6 +1,6 @@
 <div class="container">
-  <div *ngFor="let league of leagueData | forRange: 3; let i = index">
-    <div *ngIf="league[i];then ranked else unranked"></div>
+  <div *ngFor="let league of leagueData | forRange: 3">
+    <div *ngIf="leagueData.length >= 1;then ranked else unranked"></div>
 
     <ng-template #ranked>
       {{league.name}}{{league.tier}}<img src="assets/img/{{league.tier}}.png" />{{league.queue}}
@@ -10,6 +10,6 @@
       <img src="assets/img/UNRANKED.png" />
       <p>DATA NOT FOUND</p>
     </ng-template>
-
+    
   </div>
 </div>

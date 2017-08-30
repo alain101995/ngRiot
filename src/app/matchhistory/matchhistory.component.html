@@ -1,25 +1,22 @@
-<table class="table table-responsive">
-  <thead>
-    <tr>
-      <th>Champion</th>
-      <th>Lane</th>
-      <th>Role</th>
-      <th>Season</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let matches of matchesData?.matches; let i = index" >
-    <tr>
-        <td>{{matchesData?.matches[i]?.champion}}</td>
-        <td>{{matchesData?.matches[i]?.lane}}</td>
-      <td>{{matchesData?.matches[i]?.role}}</td>
-      <td>{{matchesData?.matches[i]?.season}}</td>
-      <td>{{matchesData?.matches[i]?.timestamp | date}}</td>
-    </tr>
-  </tbody>
-</table>
-
-<!--div *ngFor="let obj of champions?.data | object-keys">
-    <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj?.key}}.png" title="{{obj?.title}}"> 
-    {{obj?.key}}
-</div-->
+<div class="container">
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>Champion</th>
+        <th>Lane</th>
+        <th>Role</th>
+        <th>Season</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let matches of matchesData?.matches">
+      <tr *ngFor="let obj of champions?.data | objectKeys | forRange: 1">
+        <td *ngIf="matches.champion == obj.id"><img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj.key}}.png"></td>
+        <td>{{matches.lane}}</td>
+        <td>{{matches.role}}</td>
+        <td>{{matches.season}}</td>
+        <td>{{matches.timestamp | date}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

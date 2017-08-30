@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RiotService {
   public currentPlayer: IPlayer;
+  public championsMap: any = {};
   constructor(private http: Http) { }
 
   // La diferencia entre Subject y BehaviorSubject es que BehaviorSubject
@@ -29,38 +30,38 @@ export class RiotService {
     this.searchSubject.next(player); // Aqui distribuye a los subscriptores
   }
 
-  playerId(playerName: string) { // DONE
+  playerId(playerName: string) {
     return this.http
       .get(`http://localhost:3000/api/playerid/${playerName}`)
       .map(response => response.json())
       .toPromise();
   }
 
-  playerRunes(playerId: number) { // DONE
+  playerRunes(playerId: number) {
     return this.http
       .get(`http://localhost:3000/api/runes/${playerId}`)
       .map(response => response.json());
   }
 
-  playerMasteries(playerId: number) { // DONE
+  playerMasteries(playerId: number) {
     return this.http
       .get(`http://localhost:3000/api/masteries/${playerId}`)
       .map(response => response.json());
   }
 
-  champMasterie(playerId: number) { // DONE
+  champMasterie(playerId: number) {
     return this.http
       .get(`http://localhost:3000/api/champm/${playerId}`)
       .map(response => response.json());
   }
 
-  playerLeague(playerId: any) { // DONE
+  playerLeague(playerId: any) {
     return this.http
       .get(`http://localhost:3000/api/league/${playerId}`)
       .map(response => response.json());
   }
 
-  playerMatches(accountId: number) { // DONE
+  playerMatches(accountId: number) {
     return this.http
       .get(`http://localhost:3000/api/matches/${accountId}`)
       .map(response => response.json());
@@ -70,25 +71,14 @@ export class RiotService {
     return this.http
       .get(`assets/champions.json`)
       .map(response => response.json())
-      .toPromise();
-  }
-  /*
-   playerLeague(playerId: string): Observable<any> {
-     return this.http
-       .get(`http://localhost:3000/api/league/${playerId}`)
-       .map(response => response.json());
-       // .do(data => console.log('All: ' + JSON.stringify(data)))
-       // .catch(this.handleError);
-     }
+      .toPromise()
+      .then((c: any) => {
+        Object.keys(c.data).forEach(key => {
+          this.championsMap[c.data[key].id] = key;
+        });
+        console.log('champs', this.championsMap);
+        return c;
+      });
 
-     playerMatches(accountId: number): Observable<any> { // DONE
-       return this.http
-         .get(`http://localhost:3000/api/matches/${accountId}`)
-         .map(response => response.json());
-     }
- */
-  /* private handleError(err: Error) {
-    console.log(err.message);
-    return Observable.throw(err.message);
-  } */
+  }
 }

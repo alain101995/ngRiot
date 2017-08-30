@@ -7,17 +7,13 @@ import { IChampmData } from '../types';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent  { // implements OnInit
-  // playerRequest = 'caberalex';
+export class MainComponent  {
   constructor(private riotService: RiotService) { }
 
-  redirect(summonerName: string) {
-    /*
+  search(summonerName: string) {
     this.riotService.playerId(summonerName).then(response => {
-      this.riotService.currentPlayer = response;
+      this.riotService.onSearch(response);
       console.log(response);
-      console.log('Greetings ' + response.name);
     });
-    */
-  }
+}
 }

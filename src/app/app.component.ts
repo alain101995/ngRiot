@@ -13,22 +13,7 @@ export class AppComponent {
   search(summonerName: string) {
     this.riotService.playerId(summonerName).then(response => {
       this.riotService.onSearch(response);
-      console.log(response);
+      // console.log(response);
     });
-    /*
- this.riotService.playerId(summonerName).then(response => {
-   this.riotService.currentPlayer = response;
-   console.log(response);
-   // window.location.reload();
- });
-*/
   }
-  /*
-    this.riotService.playerId(summonerName)
-      .subscribe(
-      currentPlayer => this.riotService.currentPlayer = currentPlayer,
-      error => this.errorMessage = <any>error);
-
-  }
-  */
 }

@@ -10,17 +10,20 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class MatchhistoryComponent implements OnInit {
   errorMessage: string;
-
   matchesData: IMatches[];
   champions: IChampions[];
-
   private subscriptions: Subscription[] = [];
 
   constructor(
     private riotService: RiotService
   ) { }
   ngOnInit() {
-    // this.riotService.currentPlayer.accountId 200038705
+
+    this.riotService.champions().then(response => {
+      this.champions = response;
+      console.log(response);
+    });
+
     this.riotService.searchSubscription().subscribe(player => {
       if (!player) {
         return;
@@ -38,7 +41,7 @@ export class MatchhistoryComponent implements OnInit {
   getMatchesData(accountId: number): void {
     this.subscriptions.push(
       this.riotService.playerMatches(accountId).subscribe(matchesData => {
-        console.log('League Data: ', matchesData);
+        console.log('Matches Data: ', matchesData);
         this.matchesData = matchesData;
       }, error => this.errorMessage = <any>error)
     );

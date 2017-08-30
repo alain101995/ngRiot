@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.riotService.champions().then(response => {
       this.champions = response;
-      console.log(response);
+      console.log('Champ Response', response);
     });
 
     this.riotService.searchSubscription().subscribe(player => {
@@ -48,12 +48,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
       }, error => this.errorMessage = <any>error)
     );
   }
-  /*
-this.riotService.champmasterie(59627).then(response => {
-  this.champmData = response;
-  console.log(response);
-});
-*/
 
   ngOnDestroy() {
     this.subscriptions.forEach(subs => {

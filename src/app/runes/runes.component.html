@@ -12,15 +12,20 @@
         </tr>
     </tbody>
 </table-->
-
-<ul>
-  <li *ngFor="let pages of runePages?.pages; let i = index">
-    {{runePages?.pages[i]?.name}}
+<div class="container">
     <ul>
-      <li *ngFor="let pages of runePages?.pages[i]?.slots; let n = index">
-        <!--img  src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/rune/8001.png" title="8001" /-->
-        {{runePages?.pages[i]?.slots[n]?.runeId}}
-      </li>
+        <li *ngFor="let pages of runePages?.pages; let i = index">
+            {{runePages?.pages[i]?.name}}
+            <ul>
+                <li *ngFor="let pages of runePages?.pages[i]?.slots; let n = index">
+                    <div *ngIf="runePages.pages[i].slots[n].runeId == runePages.pages[i].slots[n].runeId; else otherRune">
+                        {{runePages.pages[i].slots[n].runeId}} {{counter + 1}}
+                    </div>
+                    <ng-template #otherRune>
+                        {{counter * 0}}
+                    </ng-template>
+                </li>
+            </ul>
+        </li>
     </ul>
-  </li>
-</ul>
+</div>
