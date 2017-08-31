@@ -11,9 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class RunesComponent implements OnInit, OnDestroy {
   errorMessage: string;
   runePages: IRunePages[];
-  currentRune: string;
   counter = 0;
-  runeName: string;
   private subscription: Subscription[] = [];
   constructor(private riotService: RiotService) {
     // this.riotService.currentPlayer.id
