@@ -1,8 +1,9 @@
 <div *ngFor="let pages of runePages?.pages">
     {{pages.name}}
     <div *ngFor="let slots of pages.slots; let i = index">
-        <div *ngIf="slots.runeId == (slots.runeId || 0)">
-        {{slots.runeId}}
+        <div *ngIf="pages.slots[i]">
+            {{slots.runeId}} {{i}}
+        </div>
     </div>
 </div>
 

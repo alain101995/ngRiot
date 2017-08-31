@@ -1,4 +1,4 @@
-<div class="container">
+<!--div class="container">
   <table class="table table-responsive">
     <thead>
       <tr>
@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody *ngFor="let matches of matchesData?.matches">
-      <tr *ngFor="let obj of champions?.data | objectKeys | forRange: 1">
+      <tr *ngFor="let obj of champions?.data | objectKeys">
         <td *ngIf="matches.champion == obj.id"><img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj.key}}.png"></td>
         <td>{{matches.lane}}</td>
         <td>{{matches.role}}</td>
@@ -19,4 +19,13 @@
       </tr>
     </tbody>
   </table>
+</div-->
+<div class="container">
+  <div *ngFor="let matches of matchesData.matches | forRange: 20">
+    <div *ngFor="let obj of champions.data | objectKeys">
+      <div *ngIf="matches.champion == obj.id">
+        <img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj.key}}.png">        {{matches.lane}}, {{matches.role}}, {{matches.season}}, {{matches.timestamp | date}}
+      </div>
+    </div>
+  </div>
 </div>

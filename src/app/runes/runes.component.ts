@@ -11,10 +11,9 @@ import { Subscription } from 'rxjs/Subscription';
 export class RunesComponent implements OnInit, OnDestroy {
   errorMessage: string;
   runePages: IRunePages[];
-  counter = 0;
+  otherRune: IRunePages[];
   private subscription: Subscription[] = [];
   constructor(private riotService: RiotService) {
-    // this.riotService.currentPlayer.id
   }
 
   ngOnInit() {
@@ -37,6 +36,7 @@ export class RunesComponent implements OnInit, OnDestroy {
       this.riotService.playerRunes(playerId).subscribe(runesData => {
         console.log('Runes Data: ', runesData);
         this.runePages = runesData;
+        this.otherRune = runesData;
       }, error => this.errorMessage = <string>error)
     );
   }

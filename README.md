@@ -1,18 +1,16 @@
+# Remaining tasks
+- How to not show navbar on main component exclusively.
+- Runes loop x9 x3 etc.
+- Add design to all components.
+- Show unranked img in league component.
+- Add popups on respective componentens.
 
-# Currenta tasks
-- Constructor
-
-https://www.desarrolloweb.com/articulos/directiva-nglass-angular2.html
+# Current doubts
+- What's a Constructor
 
 https://electron.atom.io/
 
 https://angular.io/tutorial/toh-pt1
-
-Ng container ng if
-https://stackoverflow.com/questions/39547858/angular-2-ng-container
-
-https://angular.io/guide/cheatsheet
-https://stackoverflow.com/questions/44184240/how-to-get-key-value-pairs-from-json-response-in-angular-2-in-the-component-ts-f
 
 - Cheat Sheet
 https://angular.io/guide/cheatsheet
@@ -23,6 +21,7 @@ https://github.com/ng2-ui/popup
 
 # Iterate on a JSON Object
 https://stackoverflow.com/questions/37046138/how-to-use-ngfor-with-object/37046743#37046743
+
 https://webcake.co/object-properties-in-angular-2s-ngfor/
 
 # Observables
