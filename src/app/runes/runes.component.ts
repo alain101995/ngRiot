@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class RunesComponent implements OnInit, OnDestroy {
   errorMessage: string;
   runePages: IRunePages[];
-  otherRune: IRunePages[];
+  runesObject: any;
   private subscription: Subscription[] = [];
   constructor(private riotService: RiotService) {
   }
@@ -24,7 +24,7 @@ export class RunesComponent implements OnInit, OnDestroy {
       this.getRunesData(player.id);
       console.log(player.id);
     });
-    /*
+    /* USING PROMISES
     this.riotService.playerRunes(this.riotService.currentPlayer.id).then(response => {
       this.runePages = response;
       console.log(response);
@@ -34,9 +34,14 @@ export class RunesComponent implements OnInit, OnDestroy {
   getRunesData(playerId: number): void {
     this.subscription.push(
       this.riotService.playerRunes(playerId).subscribe(runesData => {
+
         console.log('Runes Data: ', runesData);
+
         this.runePages = runesData;
-        this.otherRune = runesData;
+        this.runesObject = this.runesCounter(runesData);
+
+        console.log('Runes Object', this.runesObject);
+
       }, error => this.errorMessage = <string>error)
     );
   }
@@ -47,26 +52,34 @@ export class RunesComponent implements OnInit, OnDestroy {
       subs.unsubscribe();
     });
   }
-  runesCounter() {
-    let container = {};
-    let counter = 0;
-    for (let i = 0; i < this.runePages.length; i++) { // Iterando en las páginas
-      console.log(this.runePages[i].name)
-      for (let n = 0; n < this.runePages[i].slots.length; n++) { // Iterando en los slots
-        if (!(this.runePages[i].slots[n].runeId in container)) { 
-          // Si el ID de la runa no existe en objecto container, lo agregará y le otorgará el valor actual
-          // de la variable counter(1);
+
+  runesCounter(runes) {
+    return runes.pages.map(page => {
+      const container = {};
+      let counter = 0;
+      if (!page.slots) { // Salta a la siguiente iteración
+        return {
+          id: page.id,
+          name: page.name,
+          runes: container,
+        };
+      }
+      for (const slot of page.slots) { // Iterando en los slots
+        if (!container[slot.runeId]) {
           counter = 1;
-          container[this.runePages[i].slots[n].runeId] = counter
         }
+        // tslint:disable-next-line:one-line
         else {
           counter++;
-          container[this.runePages[i].slots[n].runeId] = counter;
         }
+        container[slot.runeId] = counter;
       }
       console.log(container);
-      container = {}
-    }
-    return;
+      return {
+        id: page.id,
+        name: page.name,
+        runes: container,
+      };
+    });
   }
 }

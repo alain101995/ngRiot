@@ -6,9 +6,9 @@
         </div>
     </div>
 </div-->
-
-<input type="button" (click)="runesCounter()" value="Test">
-
+<div *ngFor="let runes of runesObject">
+    {{runesObject[0].runes | objectKeys }}
+</div>
 <!--table class="table table-responsive">
     <thead>
         <tr>

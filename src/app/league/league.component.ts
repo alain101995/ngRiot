@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class LeagueComponent implements OnInit, OnDestroy {
   errorMessage: string;
   leagueData: ILeague[];
+  dummyLeague = [];
   private subscriptions: Subscription[] = [];
   constructor(
     private riotService: RiotService
@@ -31,7 +32,7 @@ export class LeagueComponent implements OnInit, OnDestroy {
       return;
     }
 
-    /*
+    /* USING PROMISES
 this.riotService.playerLeague(this.riotService.currentPlayer.id).then(response => {
   this.leagueData = response;
   console.log(response);
@@ -50,8 +51,7 @@ this.riotService.playerLeague(this.riotService.currentPlayer.id).then(response =
 
   ngOnDestroy() {
     this.subscriptions.forEach(subs => {
-      console.log('Destroyed');
-      // console.clear();
+      // console.log('Destroyed');
       subs.unsubscribe();
     });
   }
