@@ -1,12 +1,13 @@
-<div *ngFor="let pages of runePages?.pages">
+<!--div *ngFor="let pages of runePages?.pages">
     {{pages.name}}
     <div *ngFor="let slots of pages.slots; let i = index">
         <div *ngIf="pages.slots[i]">
             {{slots.runeId}} {{i}}
         </div>
     </div>
-</div>
+</div-->
 
+<input type="button" (click)="runesCounter()" value="Test">
 
 <!--table class="table table-responsive">
     <thead>

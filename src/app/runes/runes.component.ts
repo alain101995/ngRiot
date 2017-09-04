@@ -47,4 +47,26 @@ export class RunesComponent implements OnInit, OnDestroy {
       subs.unsubscribe();
     });
   }
+  runesCounter() {
+    let container = {};
+    let counter = 0;
+    for (let i = 0; i < this.runePages.length; i++) { // Iterando en las páginas
+      console.log(this.runePages[i].name)
+      for (let n = 0; n < this.runePages[i].slots.length; n++) { // Iterando en los slots
+        if (!(this.runePages[i].slots[n].runeId in container)) { 
+          // Si el ID de la runa no existe en objecto container, lo agregará y le otorgará el valor actual
+          // de la variable counter(1);
+          counter = 1;
+          container[this.runePages[i].slots[n].runeId] = counter
+        }
+        else {
+          counter++;
+          container[this.runePages[i].slots[n].runeId] = counter;
+        }
+      }
+      console.log(container);
+      container = {}
+    }
+    return;
+  }
 }

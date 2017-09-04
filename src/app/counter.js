@@ -9,36 +9,36 @@ let runes =
             { "id": 3142327, "name": "Hybrid", "current": false, "slots": [{ "runeSlotId": 1, "runeId": 5245 }, { "runeSlotId": 2, "runeId": 5245 }, { "runeSlotId": 3, "runeId": 5245 }, { "runeSlotId": 4, "runeId": 5245 }, { "runeSlotId": 5, "runeId": 5245 }, { "runeSlotId": 6, "runeId": 5245 }, { "runeSlotId": 7, "runeId": 5245 }, { "runeSlotId": 8, "runeId": 5245 }, { "runeSlotId": 9, "runeId": 5245 }, { "runeSlotId": 10, "runeId": 5317 }, { "runeSlotId": 11, "runeId": 5317 }, { "runeSlotId": 12, "runeId": 5317 }, { "runeSlotId": 13, "runeId": 5317 }, { "runeSlotId": 14, "runeId": 5317 }, { "runeSlotId": 15, "runeId": 5317 }, { "runeSlotId": 16, "runeId": 5317 }, { "runeSlotId": 17, "runeId": 5317 }, { "runeSlotId": 18, "runeId": 5317 }, { "runeSlotId": 19, "runeId": 5290 }, { "runeSlotId": 20, "runeId": 5290 }, { "runeSlotId": 21, "runeId": 5290 }, { "runeSlotId": 22, "runeId": 5290 }, { "runeSlotId": 23, "runeId": 5290 }, { "runeSlotId": 24, "runeId": 5290 }, { "runeSlotId": 25, "runeId": 5290 }, { "runeSlotId": 26, "runeId": 5290 }, { "runeSlotId": 27, "runeId": 5290 }, { "runeSlotId": 28, "runeId": 5357 }, { "runeSlotId": 29, "runeId": 5357 }, { "runeSlotId": 30, "runeId": 5357 }] },
             { "id": 3142328, "name": "AD/MSpeed", "current": false, "slots": [{ "runeSlotId": 1, "runeId": 5245 }, { "runeSlotId": 2, "runeId": 5245 }, { "runeSlotId": 3, "runeId": 5245 }, { "runeSlotId": 4, "runeId": 5245 }, { "runeSlotId": 5, "runeId": 5245 }, { "runeSlotId": 6, "runeId": 5245 }, { "runeSlotId": 7, "runeId": 5245 }, { "runeSlotId": 8, "runeId": 5245 }, { "runeSlotId": 9, "runeId": 5245 }, { "runeSlotId": 10, "runeId": 5317 }, { "runeSlotId": 11, "runeId": 5317 }, { "runeSlotId": 12, "runeId": 5317 }, { "runeSlotId": 13, "runeId": 5317 }, { "runeSlotId": 14, "runeId": 5317 }, { "runeSlotId": 15, "runeId": 5317 }, { "runeSlotId": 16, "runeId": 5317 }, { "runeSlotId": 17, "runeId": 5317 }, { "runeSlotId": 18, "runeId": 5317 }, { "runeSlotId": 19, "runeId": 5290 }, { "runeSlotId": 20, "runeId": 5290 }, { "runeSlotId": 21, "runeId": 5290 }, { "runeSlotId": 22, "runeId": 5290 }, { "runeSlotId": 23, "runeId": 5290 }, { "runeSlotId": 24, "runeId": 5290 }, { "runeSlotId": 25, "runeId": 5290 }, { "runeSlotId": 26, "runeId": 5290 }, { "runeSlotId": 27, "runeId": 5290 }, { "runeSlotId": 28, "runeId": 5365 }, { "runeSlotId": 29, "runeId": 5365 }, { "runeSlotId": 30, "runeId": 5365 }] },
             { "id": 5796042, "name": "AttackD/Cooldown", "current": true, "slots": [{ "runeSlotId": 1, "runeId": 5245 }, { "runeSlotId": 2, "runeId": 5245 }, { "runeSlotId": 3, "runeId": 5245 }, { "runeSlotId": 4, "runeId": 5245 }, { "runeSlotId": 5, "runeId": 5245 }, { "runeSlotId": 6, "runeId": 5245 }, { "runeSlotId": 7, "runeId": 5245 }, { "runeSlotId": 8, "runeId": 5245 }, { "runeSlotId": 9, "runeId": 5245 }, { "runeSlotId": 10, "runeId": 5317 }, { "runeSlotId": 11, "runeId": 5317 }, { "runeSlotId": 12, "runeId": 5317 }, { "runeSlotId": 13, "runeId": 5317 }, { "runeSlotId": 14, "runeId": 5317 }, { "runeSlotId": 15, "runeId": 5317 }, { "runeSlotId": 16, "runeId": 5317 }, { "runeSlotId": 17, "runeId": 5317 }, { "runeSlotId": 18, "runeId": 5317 }, { "runeSlotId": 19, "runeId": 5295 }, { "runeSlotId": 20, "runeId": 5295 }, { "runeSlotId": 21, "runeId": 5295 }, { "runeSlotId": 22, "runeId": 5295 }, { "runeSlotId": 23, "runeId": 5295 }, { "runeSlotId": 24, "runeId": 5295 }, { "runeSlotId": 25, "runeId": 5295 }, { "runeSlotId": 26, "runeId": 5295 }, { "runeSlotId": 27, "runeId": 5295 }, { "runeSlotId": 28, "runeId": 5335 }, { "runeSlotId": 29, "runeId": 5335 }, { "runeSlotId": 30, "runeId": 5355 }] },
-            { "id": 5796043, "name": "Empty 3", "current": false },
-            { "id": 5826044, "name": "Empty", "current": false },
+            // { "id": 5796043, "name": "Empty 3", "current": false },
+            // { "id": 5826044, "name": "Empty", "current": false },
             { "id": 5826045, "name": "AP/ScalingH/DEF", "current": false, "slots": [{ "runeSlotId": 1, "runeId": 5257 }, { "runeSlotId": 2, "runeId": 5257 }, { "runeSlotId": 3, "runeId": 5257 }, { "runeSlotId": 4, "runeId": 5257 }, { "runeSlotId": 5, "runeId": 5257 }, { "runeSlotId": 6, "runeId": 5257 }, { "runeSlotId": 7, "runeId": 5257 }, { "runeSlotId": 8, "runeId": 5257 }, { "runeSlotId": 9, "runeId": 5257 }, { "runeSlotId": 10, "runeId": 5316 }, { "runeSlotId": 11, "runeId": 5316 }, { "runeSlotId": 12, "runeId": 5316 }, { "runeSlotId": 13, "runeId": 5316 }, { "runeSlotId": 14, "runeId": 5316 }, { "runeSlotId": 15, "runeId": 5316 }, { "runeSlotId": 16, "runeId": 5316 }, { "runeSlotId": 17, "runeId": 5316 }, { "runeSlotId": 18, "runeId": 5316 }, { "runeSlotId": 19, "runeId": 5298 }, { "runeSlotId": 20, "runeId": 5298 }, { "runeSlotId": 21, "runeId": 5298 }, { "runeSlotId": 22, "runeId": 5290 }, { "runeSlotId": 23, "runeId": 5290 }, { "runeSlotId": 24, "runeId": 5290 }, { "runeSlotId": 25, "runeId": 5290 }, { "runeSlotId": 26, "runeId": 5290 }, { "runeSlotId": 27, "runeId": 5290 }, { "runeSlotId": 28, "runeId": 5347 }, { "runeSlotId": 29, "runeId": 5357 }, { "runeSlotId": 30, "runeId": 5357 }] },
-            { "id": 9441431, "name": "Empty 1", "current": false },
-            { "id": 12101212, "name": "Empty 2", "current": false }]
+            // { "id": 9441431, "name": "Empty 1", "current": false },
+            // { "id": 12101212, "name": "Empty 2", "current": false }
+        ]
     }
 
 function ocurrences(runes) {
-    let container = {
-    
-    };
-    let num = 0;
-    for(let i = 0; i < runes.pages.length; i++) {
-        num++;
-        console.log("hello", num)
+
+    let container = {};
+    let runesAmount = {};
+    let counter = 0;
+    for (let i = 0; i < runes.pages.length; i++) { // Iterando en las páginas
+        console.log(runes.pages[i].name)
+        for (let n = 0; n < runes.pages[i].slots.length; n++) { // Iterando en los slots
+
+            if (!(runes.pages[i].slots[n].runeId in container)) {
+                counter = 1;
+                container[runes.pages[i].slots[n].runeId] = counter
+            }
+            else {
+                counter++;
+                container[runes.pages[i].slots[n].runeId] = counter;
+            }
+        }
+        console.log(container);
+        container = {}
     }
-    container[runes.pages[0].slots[0].runeId] = 1 
-    console.log(container)
-    //let currentRune;
-    //currentRune = runes.pages[1].slots[29].name;
-    //for (let i = 0; i < runes.pages.slots ; i++) {
-        
-    //}
-    //  for () {
-    //     runes.pages[0].slots[0].runeId
-    //  }
+    return container
 }
 
 console.log(ocurrences(runes));
-
-// https://stackoverflow.com/questions/35948669/how-to-check-if-value-exists-in-object-using-javascript
-// https://stackoverflow.com/questions/1168807/how-can-i-add-a-key-value-pair-to-a-javascript-object
-// https://stackoverflow.com/questions/1098040/checking-if-a-key-exists-in-a-javascript-object
