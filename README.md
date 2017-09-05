@@ -1,11 +1,12 @@
 # Remaining tasks
-- How to not show navbar on main component exclusively.
+- How to hide navbar on main component exclusively.
 - Runes loop x9 x3 etc.
 - Add design to all components.
-- Show unranked img in league component.
+- Show unranked img in league component. *COMPLETED
 - Add popups on respective componentens.
 
 # Current doubts
+
 - What's a Constructor
 
 https://electron.atom.io/
@@ -20,6 +21,7 @@ https://angular.io/guide/cheatsheet
 - Popups 
 http://valor-software.com/ngx-bootstrap/#/modals
 https://github.com/ng2-ui/popup
+https://medium.com/@ladyleet/popups-modals-and-navigation-using-angular-material-2-components-in-your-angular-2-project-faf510dbcdee
 
 # Iterate on a JSON Object
 https://stackoverflow.com/questions/37046138/how-to-use-ngfor-with-object/37046743#37046743

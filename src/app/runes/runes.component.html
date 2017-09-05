@@ -6,12 +6,19 @@
         </div>
     </div>
 </div-->
-<div *ngFor="let runes of runesObject">
-</div>
-
-{{runesObject[0].name}}
-<div *ngFor="let runes of runesObject[0].runes | objectKeys">
-    {{runes}}
+<div *ngIf="runesObject">
+    <div *ngFor="let runes of runesObject ">
+        <!--
+        {{runes.name | json}} {{runes.runes | json}}
+        http://ddragon.leagueoflegends.com/cdn/7.16.1/data/en_US/rune.json
+        {{runesInfo[r.propKey]}}
+        -->
+        {{runes.name}}
+        <div *ngFor="let r of runes.runes | objectKeys">
+            {{r | json}} x {{runes.runes[r.propKey]}}
+        </div>
+      
+    </div>
 </div>
 <!--table class="table table-responsive">
     <thead>

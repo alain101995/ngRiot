@@ -76,9 +76,14 @@ export class RiotService {
         Object.keys(c.data).forEach(key => {
           this.championsMap[c.data[key].id] = key;
         });
-        console.log('champs', this.championsMap);
+        console.log('Champion List: ', this.championsMap);
         return c;
       });
-
+  }
+  runes() {
+    return this.http
+    .get(`assets/runes.json`)
+    .map(response => response.json())
+    .toPromise();
   }
 }

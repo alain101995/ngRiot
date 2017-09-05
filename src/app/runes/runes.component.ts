@@ -12,11 +12,18 @@ export class RunesComponent implements OnInit, OnDestroy {
   errorMessage: string;
   runePages: IRunePages[];
   runesObject: any;
+  runes: any;
   private subscription: Subscription[] = [];
   constructor(private riotService: RiotService) {
   }
 
   ngOnInit() {
+
+    this.riotService.runes().then(response => {
+      this.runes = response;
+      console.log('Runes', response);
+    });
+
     this.riotService.searchSubscription().subscribe(player => {
       if (!player) {
         return;
@@ -57,7 +64,7 @@ export class RunesComponent implements OnInit, OnDestroy {
     return runes.pages.map(page => {
       const container = {};
       let counter = 0;
-      if (!page.slots) { // Salta a la siguiente iteración
+      if (!page.slots) { // continue; Salta a la siguiente iteración
         return {
           id: page.id,
           name: page.name,
@@ -74,7 +81,7 @@ export class RunesComponent implements OnInit, OnDestroy {
         }
         container[slot.runeId] = counter;
       }
-      console.log(container);
+      // console.log(container);
       return {
         id: page.id,
         name: page.name,

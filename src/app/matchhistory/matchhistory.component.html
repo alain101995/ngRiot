@@ -20,12 +20,19 @@
     </tbody>
   </table>
 </div-->
+
 <div class="container">
-  <div *ngFor="let matches of matchesData.matches | forRange: 20">
-    <div *ngFor="let obj of champions.data | objectKeys">
-      <div *ngIf="matches.champion == obj.id">
-        <img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj.key}}.png">        {{matches.lane}}, {{matches.role}}, {{matches.season}}, {{matches.timestamp | date}}
+
+  <div *ngIf="matchesData">
+
+    <div *ngFor="let matches of matchesData.matches | forRange: 20">
+      <div *ngFor="let obj of champions.data | objectKeys">
+        <div *ngIf="matches.champion == obj.id">
+          <img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj.key}}.png">          {{matches.lane}}, {{matches.role}}, {{matches.season}}, {{matches.timestamp | date}}
+        </div>
       </div>
     </div>
+
   </div>
+  
 </div>

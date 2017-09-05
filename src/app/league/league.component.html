@@ -1,25 +1,61 @@
 <!--div class="container">
-  <div *ngFor="let league of leagueData | forRange: 3">
-    <div *ngIf="leagueData;then ranked else unranked"></div>
-
-    <ng-template #ranked>
-      <img src="assets/img/{{league.tier}}.png" />{{league.name}}{{league.tier}}{{league.queue}}
-    </ng-template>
-
-    <ng-template #unranked>
-      <img src="assets/img/UNRANKED.png" />
-      <p>DATA NOT FOUND</p>
-    </ng-template>
-   
+  <div class="row">
+    <div *ngFor="let league of dummyLeague; let i = index">
+      <div *ngIf="league.length != 0; else unranked">
+        <div class="text-center text-capitalize col-4"> <img src="assets/img/{{league.tier}}.png" /> <br>{{league.name}}<br>{{league.tier}}<br>{{league.queue}}
+        </div>
+      </div>
+      <ng-template #unranked>
+        <img src="assets/img/UNRANKED.png" /> <br> 
+        <p class="text-center">UNRANKED</p>
+      </ng-template>
+    </div>
   </div>
 </div-->
-<div *ngFor="let league of dummyLeague; let i = index">
-  <div *ngIf="league.length != 0; then ranked else unranked"></div>
-    <ng-template #ranked>
-        <img src="assets/img/{{league.tier}}.png" />{{league.name}}{{league.tier}}{{league.queue}}        
-    </ng-template>
-    <ng-template #unranked>
-        <img src="assets/img/UNRANKED.png" />        
-      Unranked
-    </ng-template>
+
+<!--div class="jumbotron">
+    <h1 class="display-3">Hello, {{playerData?.name}}!</h1>
+    <div *ngFor="let league of dummyLeague; let i = index">
+        <div *ngIf="league.length != 0; else unranked">
+          <div class="text-center text-capitalize col-4"> <img src="assets/img/{{league.tier}}.png" /> <br>{{league.name}}<br>{{league.tier}}<br>{{league.queue}}
+          </div>
+        </div>
+        <ng-template #unranked>
+          <img src="assets/img/UNRANKED.png" /> <br> 
+          <p class="text-center">UNRANKED</p>
+        </ng-template>
+      </div>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+
+  </div-->
+
+<div class="jumbotron">
+  <div class="container">
+
+    <h1 class="display-3">{{playerData?.name}}</h1>
+    <p> Example </p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div *ngFor="let league of dummyLeague; let i = index">
+      <div *ngIf="league.length != 0; else unranked">
+
+        <div class="text-center col-md-4"> <img src="assets/img/{{league.tier}}.png" />
+          <br>{{league.name}}<br>{{league.tier}}<br>{{league.queue}}
+        </div>
+
+      </div>
+
+      <ng-template #unranked>
+        <img src="assets/img/UNRANKED.png" /> <br>
+        <p class="text-center">UNRANKED</p>
+      </ng-template>
+
+    </div>
+
+  </div>
 </div>
