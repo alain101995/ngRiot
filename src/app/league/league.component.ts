@@ -45,6 +45,15 @@ this.riotService.playerLeague(this.riotService.currentPlayer.id).then(response =
       this.riotService.playerLeague(playerId).subscribe(leagueData => {
         console.log('League Data: ', leagueData);
         this.leagueData = leagueData;
+        this.dummyLeague  = leagueData;
+
+        do{
+        if (this.dummyLeague.length < 3) {
+          this.dummyLeague.push([]);
+        }
+      } while(this.dummyLeague.length < 3)
+      
+        console.log('Dummy league', this.dummyLeague)
       }, error => this.errorMessage = <any>error)
     );
   }

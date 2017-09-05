@@ -7,7 +7,11 @@
     </div>
 </div-->
 <div *ngFor="let runes of runesObject">
-    {{runesObject[0].runes | objectKeys }}
+</div>
+
+{{runesObject[0].name}}
+<div *ngFor="let runes of runesObject[0].runes | objectKeys">
+    {{runes}}
 </div>
 <!--table class="table table-responsive">
     <thead>
