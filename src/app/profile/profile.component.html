@@ -1,49 +1,41 @@
-<!--div class="container">
-  <div *ngFor="let champm of champmData | forRange: 3">
-    Champion Points: {{champm.championPoints}} Champion Level: {{champm.championLevel}} Champion ID: {{champm.championId}}
-    <div *ngFor="let obj of champions.data | objectKeys">
-      <div *ngIf="champm.championId == obj.id">
-        <img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj.key}}.png">
-      </div>
-    </div>
-  </div>
-</div-->
-
-<!--div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let champm of champmData | forRange: 3">
-      
-      <div *ngFor="let obj of champions.data | objectKeys">
-          <div *ngIf="champm.championId == obj.id">
-            <img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj.key}}.png"><br>
-            class="rounded-circle"
-            Champion Points: {{champm.championPoints}} Champion Level: {{champm.championLevel}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div-->
-  
 <div class="jumbotron">
   <div class="container">
     <div class="row">
-        <div class="col-md-4" *ngFor="let champm of champmData | forRange: 3">
-          
-          <div *ngFor="let obj of champions.data | objectKeys">
-              <div *ngIf="champm.championId == obj.id">
-                <img style="vertical-align:middle" class="rounded-circle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj.key}}.png"><br>
-                
-                Champion Points: {{champm.championPoints}} Champion Level: {{champm.championLevel}}
-              </div>
-            </div>
+      <div class="col-md-4" *ngFor="let champm of champmData | forRange: 3">
+        <div *ngFor="let obj of champions.data | objectKeys">
+          <div *ngIf="champm.championId == obj.id">
+            <img style="vertical-align:middle" class="rounded-circle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj.key}}.png"><br>            Champion Points: {{champm.championPoints}} Champion Level: {{champm.championLevel}}
           </div>
         </div>
-
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
+
+    <div *ngFor="let league of dummyLeague; let i = index">
+      
+      <div *ngIf="league.length != 0; else unranked">
+
+        <div class="text-center col-md-4"> <img src="assets/img/{{league.tier}}.png" />
+          <br>{{league.name}}<br>{{league.tier}}<br>{{league.queue}}
+        </div>
+
+      </div>
+
+      <ng-template #unranked>
+        <img src="assets/img/UNRANKED.png" /> <br>
+        <p class="text-center">UNRANKED</p>
+      </ng-template>
+
+    </div>
+
+  </div>
+</div>
+<!--div class="container">
+  <div class="row">
     <div class="col-md-4">
       <h2>Heading</h2>
       <p>Victor Alain Quiroz Díaz </p>
@@ -60,5 +52,5 @@
       <a class="btn btn-secondary" href="#" role="button">View details </a>
     </div>
   </div>
-</div>
+</div-->
 <!-- PROFILE ICON http://ddragon.leagueoflegends.com/cdn/7.17.1/img/profileicon/1151.png -->

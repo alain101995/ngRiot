@@ -6,11 +6,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { routes } from './app.router';
 
-import { HeaderComponent } from './header/header.component';
 import { RiotService } from './riot.service';
+import { NavbarService } from './navbar.service';
 import { LeagueComponent } from './league/league.component';
 import { RunesComponent } from './runes/runes.component';
-import { ChampmComponent } from './champm/champm.component';
 import { MasteriesComponent } from './masteries/masteries.component';
 import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -22,10 +21,8 @@ import { ForRangePipe } from './for-range.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     LeagueComponent,
     RunesComponent,
-    ChampmComponent,
     MasteriesComponent,
     MainComponent,
     ProfileComponent,
@@ -41,7 +38,7 @@ import { ForRangePipe } from './for-range.pipe';
     RouterModule,
     routes
   ],
-  providers: [RiotService],
+  providers: [RiotService, NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

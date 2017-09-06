@@ -90,6 +90,12 @@
             "name": "Yorick",
             "title": "Shepherd of Souls"
         },
+        "Ornn": {
+            "id": 516,
+            "key": "Ornn",
+            "name": "Ornn",
+            "title": "The Fire below the Mountain"
+        },
         "Kayn": {
             "id": 141,
             "key": "Kayn",
@@ -824,5 +830,5 @@
         }
     },
     "type": "champion",
-    "version": "7.16.1"
+    "version": "7.17.2"
 }

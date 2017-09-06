@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RiotService } from './riot.service';
 import { IChampmData } from './types';
+import { NavbarService } from './navbar.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +9,7 @@ import { IChampmData } from './types';
 })
 export class AppComponent {
   errorMessage: string;
-  constructor(private riotService: RiotService) { }
+  constructor(private riotService: RiotService, public nav: NavbarService) { }
 
   search(summonerName: string) {
     this.riotService.playerId(summonerName).then(response => {

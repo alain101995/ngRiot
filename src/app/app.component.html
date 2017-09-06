@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<nav *ngIf="nav.visible" class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" routerLink="">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,9 +10,9 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="profile">Profile </a>
       </li>
-      <li class="nav-item">
+      <!--li class="nav-item">
         <a class="nav-link" routerLink="league">Leagues</a>
-      </li>
+      </li-->
       <li class="nav-item">
         <a class="nav-link" routerLink="matchhistory">Match History</a>
       </li>

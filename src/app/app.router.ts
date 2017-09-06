@@ -1,5 +1,5 @@
 import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LeagueComponent } from './league/league.component';
@@ -13,12 +13,13 @@ import { ChampionsComponent } from './champions/champions.component';
 export const router: Routes = [
     { path: '', component: MainComponent },
     { path: 'profile', component: ProfileComponent }, // DONE
-    { path: 'league', component: LeagueComponent }, // DONE
+    // { path: 'league', component: LeagueComponent }, // DONE
     { path: 'matchhistory', component: MatchhistoryComponent }, // DONE
     { path: 'champions', component: ChampionsComponent }, // DONE
     { path: 'runes', component: RunesComponent }, // DONE
     { path: 'masteries', component: MasteriesComponent } // DONE
 ];
+
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
 

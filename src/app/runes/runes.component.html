@@ -11,11 +11,12 @@
         <!--
         {{runes.name | json}} {{runes.runes | json}}
         http://ddragon.leagueoflegends.com/cdn/7.16.1/data/en_US/rune.json
+        http://ddragon.leagueoflegends.com/cdn/7.16.1/img/rune/8001.png
         {{runesInfo[r.propKey]}}
         -->
         {{runes.name}}
         <div *ngFor="let r of runes.runes | objectKeys">
-            {{r | json}} x {{runes.runes[r.propKey]}}
+            {{r.propKey}} x {{runes.runes[r.propKey]}}
         </div>
       
     </div>

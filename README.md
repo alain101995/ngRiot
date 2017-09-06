@@ -1,10 +1,11 @@
 # Remaining tasks
-- How to hide navbar on main component exclusively.
-- Runes loop x9 x3 etc.
-- Add design to all components.
+- How to hide navbar on main component exclusively. *COMPLETED
+- Runes loop x9 x3 etc. *COMPLETED
 - Show unranked img in league component. *COMPLETED
 - Add popups on respective componentens.
+- Add design to all components.
  USEFUL BACKGROUND https://css-tricks.com/perfect-full-page-background-image/
+ 
 # Current doubts
 
 - What's a Constructor
