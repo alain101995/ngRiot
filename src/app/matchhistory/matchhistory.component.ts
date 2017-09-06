@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RiotService } from '../riot.service';
 import { IMatches, IChampions } from '../types';
 import { Subscription } from 'rxjs/Subscription';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './matchhistory.component.html',
   styleUrls: ['./matchhistory.component.css']
 })
-export class MatchhistoryComponent implements OnInit {
+export class MatchhistoryComponent implements OnInit, OnDestroy {
   errorMessage: string;
   matchesData: IMatches[];
   champions: IChampions[];
@@ -45,6 +45,12 @@ export class MatchhistoryComponent implements OnInit {
         this.matchesData = matchesData;
       }, error => this.errorMessage = <any>error)
     );
+  }
+  ngOnDestroy() {
+    this.subscriptions.forEach(subs => {
+      console.log('Destroyed');
+      subs.unsubscribe();
+    });
   }
 }
 
