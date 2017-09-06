@@ -15,4 +15,7 @@
     min-width: 50%;
     min-height: 50%;
   }
-  
+  img {
+    opacity: 0.8;
+    filter:brightness(50%);
+}

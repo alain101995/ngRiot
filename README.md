@@ -4,7 +4,7 @@
 - Add design to all components.
 - Show unranked img in league component. *COMPLETED
 - Add popups on respective componentens.
-
+ USEFUL BACKGROUND https://css-tricks.com/perfect-full-page-background-image/
 # Current doubts
 
 - What's a Constructor
