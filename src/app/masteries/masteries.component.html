@@ -1,29 +1,26 @@
-<table class="table table-responsive">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Mastery</th>
-        </tr>
-    </thead>
-    <tbody *ngFor="let mymasteries of masteriesData?.pages; let i = index">
-        <tr>
-            <td>{{masteriesData?.pages[i]?.name}}</td>
-            <td *ngFor="let masteries of masteriesData?.pages[i]?.masteries; let n = index">
-                <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/mastery/{{masteriesData?.pages[i]?.masteries[n]?.id}}.png" title="{{masteriesData?.pages[i]?.masteries[n]?.id}}"> {{masteriesData.pages[i]?.masteries[n]?.rank}}
-            </td>
-        </tr>
-    </tbody>
-</table>
-<!--
-<ul>
-    <li *ngFor="let masteries of masteriesData.pages; let i = index">
-        <a> {{masteriesData?.pages[i].name}}</a>
-        <ul>
-            <li *ngFor="let mymasteries of masteriesData.pages[i].masteries; let n = index">
-                <a> {{masteriesData.pages[i]?.masteries[n]?.id}} <br>{{masteriesData.pages[i]?.masteries[n]?.rank}}  </a>
-                <img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/mastery/{{masteriesData.pages[i].masteries[n].id}}.png" title=""/>
-            </li>
-        </ul>
-    </li>
-</ul>
--->
+<!--div *ngIf="masteriesData">
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Mastery</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let mymasteries of masteriesData?.pages; let i = index">
+            <tr>
+                <td>{{masteriesData?.pages[i]?.name}}</td>
+                <td *ngFor="let masteries of masteriesData?.pages[i]?.masteries; let n = index">
+                    <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/mastery/{{masteriesData?.pages[i]?.masteries[n]?.id}}.png" title="{{masteriesData?.pages[i]?.masteries[n]?.id}}">               
+                        {{masteriesData.pages[i]?.masteries[n]?.rank}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div-->
+<div *ngIf="masteriesData">
+    <div *ngFor="let mymasteries of masteriesData.pages"> {{mymasteries.name}}
+        <div *ngFor="let masteries of mymasteries.masteries | objectKeys">
+            <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/mastery/{{masteries.id}}.png" title="{{masteries.id}}"> {{masteries.rank}}
+        </div>
+    </div>
+</div>

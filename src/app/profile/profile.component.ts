@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   champions: IChampions[];
   leagueData: ILeague[];
   dummyLeague = [];
-  errorMessage: string;
+  errorMessage = 'Something went wrong';
   playerData = this.riotService.currentPlayer;
   constructor(
     private riotService: RiotService,
@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       if (!player) {
         return;
       }
-
+      this.playerData = player;
       console.log('Player ID: ', player.id);
       this.getChampmData(player.id);
       this.getLeagueData(player.id);
@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       this.riotService.champMasterie(playerId).subscribe(champmData => {
         console.log('Champion Masterie Data: ', champmData);
         this.champmData = champmData;
-      }, error => this.errorMessage = <any>error)
+      }, error => this.errorMessage = <string>error)
     );
   }
 
@@ -68,7 +68,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         } while (this.dummyLeague.length < 3);
         console.log('Dummy league', this.dummyLeague);
         console.log('Subscriptions', this.subscriptions);
-      }, error => this.errorMessage = <any>error)
+      }, error => this.errorMessage = <string>error)
     );
   }
 

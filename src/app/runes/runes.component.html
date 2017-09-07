@@ -1,55 +1,21 @@
-<!--div *ngFor="let pages of runePages?.pages">
-    {{pages.name}}
-    <div *ngFor="let slots of pages.slots; let i = index">
-        <div *ngIf="pages.slots[i]">
-            {{slots.runeId}} {{i}}
-        </div>
-    </div>
-</div-->
 <div *ngIf="runesObject">
     <div *ngFor="let runes of runesObject ">
-        <!--
-        {{runes.name | json}} {{runes.runes | json}}
-        http://ddragon.leagueoflegends.com/cdn/7.16.1/data/en_US/rune.json
-        http://ddragon.leagueoflegends.com/cdn/7.16.1/img/rune/8001.png
-        {{runesInfo[r.propKey]}}
-        -->
-        {{runes.name}}
+        <h3> {{runes.name}} </h3>
         <div *ngFor="let r of runes.runes | objectKeys">
-            {{r.propKey}} x {{runes.runes[r.propKey]}}
+            <div *ngFor="let runesProp of runesData.data | objectKeys">
+                <div *ngIf="runesProp.propKey == r.propKey">
+                    {{runesProp.name}}
+                    <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/rune/{{runesProp.image.full}}" title="{{runesProp.description}}"> x {{runes.runes[r.propKey]}} {{runesProp.description}}
+                </div>
+            </div>
         </div>
-      
     </div>
 </div>
-<!--table class="table table-responsive">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Rune</th>
-        </tr>
-    </thead>
-    <tbody *ngFor="let pages of runePages?.pages; let i = index">
-        <tr>
-            <td>{{runePages?.pages[i]?.name}}</td>
-            <td *ngFor="let pages of runePages?.pages[i]?.slots; let n = index"><img src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/rune/8001.png"></td>
-        </tr>
-    </tbody>
-</table-->
 
-<!--div class="container">
-    <ul>
-        <li *ngFor="let pages of runePages?.pages; let i = index">
-            {{runePages?.pages[i]?.name}}
-            <ul>
-                <li *ngFor="let pages of runePages?.pages[i]?.slots; let n = index">
-                    <div *ngIf="runePages.pages[i].slots[n].runeId == runePages.pages[i].slots[n].runeId; else otherRune">
-                        {{runePages.pages[i].slots[n].runeId}} x {{counter * 5 }}
-                    </div>
-                    <ng-template #otherRune>
-                        {{counter * 0}}
-                    </ng-template>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</div-->
+<!--
+    http://ddragon.leagueoflegends.com/cdn/7.16.1/data/en_US/rune.json
+    http://ddragon.leagueoflegends.com/cdn/7.16.1/img/rune/r_1_3.png
+    {{runesInfo[r.propKey]}}
+      {{runesProp.data}}
+      {{r.propKey}} x {{runes.runes[r.propKey]}}
+-->

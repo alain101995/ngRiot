@@ -36,7 +36,7 @@ export class MasteriesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.forEach(subs => {
-      console.log('Destroyed');
+      // console.log('Destroyed');
       subs.unsubscribe();
     });
   }

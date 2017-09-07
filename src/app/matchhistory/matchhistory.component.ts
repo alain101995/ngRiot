@@ -38,6 +38,15 @@ export class MatchhistoryComponent implements OnInit, OnDestroy {
     }
 
   }
+
+  ngOnDestroy() {
+    // Utilizar ngOnDestroy para hacer .unsubscribe de todos los observables utilizados
+    this.subscriptions.forEach(subs => {
+      // console.log('Destroyed');
+      subs.unsubscribe();
+    });
+  }
+
   getMatchesData(accountId: number): void {
     this.subscriptions.push(
       this.riotService.playerMatches(accountId).subscribe(matchesData => {
@@ -46,14 +55,8 @@ export class MatchhistoryComponent implements OnInit, OnDestroy {
       }, error => this.errorMessage = <any>error)
     );
   }
-  ngOnDestroy() {
-    this.subscriptions.forEach(subs => {
-      console.log('Destroyed');
-      subs.unsubscribe();
-    });
-  }
-}
 
+}
     /*
         this.riotService.champions().then(response => {
           this.champions = response;
@@ -63,6 +66,5 @@ export class MatchhistoryComponent implements OnInit, OnDestroy {
         .subscribe(
         leagueData => this.matchesData = leagueData,
         error => this.errorMessage = <any>error);
-         */
+    */
 
-// Utilizar ngOnDestroy para hacer .unbsubscribe de todos los observables utilizados

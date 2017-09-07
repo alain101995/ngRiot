@@ -10,9 +10,8 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class RunesComponent implements OnInit, OnDestroy {
   errorMessage: string;
-  runePages: IRunePages[];
-  runesObject: any;
-  runes: any;
+  runesObject: IRunePages[];
+  runesData: any;
   private subscription: Subscription[] = [];
   constructor(private riotService: RiotService) {
   }
@@ -20,7 +19,7 @@ export class RunesComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.riotService.runes().then(response => {
-      this.runes = response;
+      this.runesData = response;
       console.log('Runes', response);
     });
 
@@ -31,26 +30,13 @@ export class RunesComponent implements OnInit, OnDestroy {
       this.getRunesData(player.id);
       console.log(player.id);
     });
-    /* USING PROMISES
+    /*
+    USING PROMISES
     this.riotService.playerRunes(this.riotService.currentPlayer.id).then(response => {
       this.runePages = response;
       console.log(response);
     });
     */
-  }
-  getRunesData(playerId: number): void {
-    this.subscription.push(
-      this.riotService.playerRunes(playerId).subscribe(runesData => {
-
-        console.log('Runes Data: ', runesData);
-
-        this.runePages = runesData;
-        this.runesObject = this.runesCounter(runesData);
-
-        console.log('Runes Object', this.runesObject);
-
-      }, error => this.errorMessage = <string>error)
-    );
   }
 
   ngOnDestroy() {
@@ -59,6 +45,22 @@ export class RunesComponent implements OnInit, OnDestroy {
       subs.unsubscribe();
     });
   }
+
+  getRunesData(playerId: number): void {
+    this.subscription.push(
+      this.riotService.playerRunes(playerId).subscribe(runesData => {
+
+        console.log('Runes Data: ', runesData);
+
+        // this.runePages = runesData;
+        this.runesObject = this.runesCounter(runesData);
+
+        console.log('Runes Object', this.runesObject);
+
+      }, error => this.errorMessage = <string>error)
+    );
+  }
+
 
   runesCounter(runes) {
     return runes.pages.map(page => {
