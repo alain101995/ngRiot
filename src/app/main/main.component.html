@@ -1,41 +1,37 @@
 <div class="bg">
- <div class="container text-center d-flex align-items-center h-100">
-            <div class="content text-center w-100">
-                <h2>League of Legends</h2>
-                <h1 class="color-secondary">Player's profile</h1>
-                <div>
-                    <form  action="search" method="post">
-                        <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Summoner Name" aria-label="Search" required autofocus #summonerName>
-                            
-                            <div class="input-group-btn input-group-btn-realm">
-                                <button type="button"class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">LAN</button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <p class="dropdown-item" data-handle="EUW">Europe West</p>
-                                    <p class="dropdown-item" data-handle="EUNE">Europe Nordic & East</p>
-                                    <p class="dropdown-item" data-handle="NA">North America</p>
-                                    <p class="dropdown-item" data-handle="BR">Brazil</p>
-                                    <p class="dropdown-item" data-handle="KR">Korea</p>
-                                    <p class="dropdown-item" data-handle="TR">Turkey</p>
-                                    <p class="dropdown-item" data-handle="RU">Russia</p>
-                                    <p class="dropdown-item" data-handle="LAN">Latin America North</p>
-                                    <p class="dropdown-item" data-handle="LAS">Latin America south</p>
-                                    <p class="dropdown-item" data-handle="OCE">Oceania</p>
-                                    <p class="dropdown-item" data-handle="JP">Japan</p>
-                                </div>
-                            </div>
-                            <div class="input-group-btn input-group-btn-submit">
-                                <button class="btn btn-outline-success my-2 my-sm-0" routerLink="profile" (click)="search(summonerName.value)" type="button">Search</button>                                
-                            </div>
+    <div class="container text-center d-flex align-items-center h-100">
+        <div class="content text-center w-100">
+            <!--h2>League of Legends</h2-->
+            <h1 class="color-secondary">Player's profile</h1>
+            <div>
+                <div class="input-group">
+                    <input class="form-control form-control-lg" type="text" placeholder="Summoner Name" aria-label="Search" autofocus #summonerName>
+                    <!--div class="input-group-btn input-group-btn-realm">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LAN</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <p class="dropdown-item" data-handle="EUW">Europe West</p>
+                            <p class="dropdown-item" data-handle="EUNE">Europe Nordic & East</p>
+                            <p class="dropdown-item" data-handle="NA">North America</p>
+                            <p class="dropdown-item" data-handle="BR">Brazil</p>
+                            <p class="dropdown-item" data-handle="KR">Korea</p>
+                            <p class="dropdown-item" data-handle="TR">Turkey</p>
+                            <p class="dropdown-item" data-handle="RU">Russia</p>
+                            <p class="dropdown-item" data-handle="LAN">Latin America North</p>
+                            <p class="dropdown-item" data-handle="LAS">Latin America south</p>
+                            <p class="dropdown-item" data-handle="OCE">Oceania</p>
+                            <p class="dropdown-item" data-handle="JP">Japan</p>
                         </div>
-                        <input type="hidden" name="realm" value="LAN">
-                    </form>
+                    </div-->
+                    <div class="input-group-btn input-group-btn-submit">
+                        <button class="btn btn-lg btn-outline-success my-2 my-sm-0" routerLink="profile" (click)="search(summonerName.value)" type="button">Search</button>
+                    </div>
                 </div>
+                <!--input type="hidden" name="realm" value="LAN"-->
             </div>
         </div>
-
-  
+    </div>
 </div>
-       
-    <!--img src="http://placehold.it/1920x1080"assets/background.jpg alt=""-->
+
+<!--img src="http://placehold.it/1920x1080"assets/background.jpg alt=""
+    /assets/background.jpg
+-->

@@ -4,11 +4,19 @@
 - Show unranked img in league component. *COMPLETED
 - Add popups on respective componentens.
 - Add design to all components.
+- Add pagination to runes component 
+https://v4-alpha.getbootstrap.com/components/button-group/
+https://v4-alpha.getbootstrap.com/components/pagination/
+https://stackoverflow.com/questions/35475633/change-div-content-dynamically-on-ng-click-angularjs
+https://v4-alpha.getbootstrap.com/components/carousel/
+- Add progress bars on components
  USEFUL BACKGROUND https://css-tricks.com/perfect-full-page-background-image/
  
 # Current doubts
 
 - What's a Constructor
+- Observables
+- Pipes
 
 https://electron.atom.io/
 

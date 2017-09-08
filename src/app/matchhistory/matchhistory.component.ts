@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./matchhistory.component.css']
 })
 export class MatchhistoryComponent implements OnInit, OnDestroy {
-  errorMessage: string;
+  errorMessage = 'Something went wrong';
   matchesData: IMatches[];
   champions: IChampions[];
   private subscriptions: Subscription[] = [];
@@ -19,9 +19,9 @@ export class MatchhistoryComponent implements OnInit, OnDestroy {
   ) { }
   ngOnInit() {
 
-    this.riotService.champions().then(response => {
+    this.riotService.championsData().then(response => {
       this.champions = response;
-      console.log(response);
+      console.log('Response: ', this.champions);
     });
 
     this.riotService.searchSubscription().subscribe(player => {
@@ -29,7 +29,7 @@ export class MatchhistoryComponent implements OnInit, OnDestroy {
         return;
       }
       this.getMatchesData(player.accountId);
-      console.log('Data', player.accountId);
+      console.log('Data: ', player.accountId);
     });
 
     console.log('Current Player: ', this.riotService.currentPlayer);

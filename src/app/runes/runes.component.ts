@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./runes.component.css']
 })
 export class RunesComponent implements OnInit, OnDestroy {
-  errorMessage: string;
+  errorMessage = 'Something went wrong';
   runesObject: IRunePages[];
   runesData: any;
   private subscription: Subscription[] = [];
@@ -20,7 +20,7 @@ export class RunesComponent implements OnInit, OnDestroy {
 
     this.riotService.runes().then(response => {
       this.runesData = response;
-      console.log('Runes', response);
+      console.log('Runes: ', response);
     });
 
     this.riotService.searchSubscription().subscribe(player => {
@@ -41,7 +41,7 @@ export class RunesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.forEach(subs => {
-      console.log('Destroyed');
+      // console.log('Destroyed');
       subs.unsubscribe();
     });
   }
@@ -55,12 +55,11 @@ export class RunesComponent implements OnInit, OnDestroy {
         // this.runePages = runesData;
         this.runesObject = this.runesCounter(runesData);
 
-        console.log('Runes Object', this.runesObject);
+        console.log('Runes Object: ', this.runesObject);
 
       }, error => this.errorMessage = <string>error)
     );
   }
-
 
   runesCounter(runes) {
     return runes.pages.map(page => {

@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.riotService.champions().then(response => {
+    this.riotService.championsData().then(response => {
       this.champions = response;
       console.log('Champ Response', response);
     });

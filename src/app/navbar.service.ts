@@ -9,5 +9,5 @@ export class NavbarService {
 
   show() { this.visible = true; }
 
-  toggle() { this.visible = !this.visible; }
+  // toggle() { this.visible = !this.visible; }
 }

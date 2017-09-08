@@ -67,6 +67,7 @@ export class RiotService {
       .map(response => response.json());
   }
 
+  /*
   champions() {
     return this.http
       .get(`assets/champions.json`)
@@ -80,10 +81,27 @@ export class RiotService {
         return c;
       });
   }
+  */
+
+  championsData() {
+    return this.http
+      .get(`assets/championsData.json`)
+      .map(response => response.json())
+      .toPromise();
+  }
+
   runes() {
     return this.http
-    .get(`assets/runes.json`)
+      .get(`assets/runes.json`)
+      .map(response => response.json())
+      .toPromise();
+  }
+
+  masteries() {
+    return this.http
+    .get(`assets/masteries.json`)
     .map(response => response.json())
     .toPromise();
   }
 }
+

@@ -26,9 +26,9 @@
   <div *ngIf="matchesData">
 
     <div *ngFor="let matches of matchesData.matches | forRange: 20">
-      <div *ngFor="let obj of champions.data | objectKeys">
-        <div *ngIf="matches.champion == obj.id">
-          <img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/{{obj.key}}.png">          
+      <div *ngFor="let champion of champions.data | objectKeys">
+        <div *ngIf="matches.champion == champion.key">
+          <img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/{{champion.id}}.png">          
           {{matches.lane}}, {{matches.role}}, {{matches.season}}, {{matches.timestamp | date}}
         </div>
       </div>

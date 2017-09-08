@@ -9,13 +9,19 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./masteries.component.css']
 })
 export class MasteriesComponent implements OnInit, OnDestroy {
-  errorMessage: string;
+  errorMessage = 'Something went wrong';
   masteriesData: IMasteries[];
+  masteriesProp: any;
   private subscription: Subscription[] = [];
   constructor(
     private riotService: RiotService
   ) { }
+
   ngOnInit() {
+    this.riotService.masteries().then(response => {
+      this.masteriesProp = response;
+      console.log('Masteries: ', response);
+    });
     this.riotService.searchSubscription().subscribe(player => {
       if (!player) {
         return;
@@ -28,7 +34,7 @@ export class MasteriesComponent implements OnInit, OnDestroy {
   getMasteriesData(playerId: number): void {
     this.subscription.push(
       this.riotService.playerMasteries(playerId).subscribe(masteriesData => {
-        console.log('Masteries Data ', masteriesData);
+        console.log('Masteries Data: ', masteriesData);
         this.masteriesData = masteriesData;
       }, error => this.errorMessage = <string>error)
     );
