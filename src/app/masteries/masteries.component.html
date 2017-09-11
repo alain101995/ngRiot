@@ -1,4 +1,4 @@
-<!--div *ngIf="masteriesData">
+<div *ngIf="masteriesData">
     <table class="table table-responsive">
         <thead>
             <tr>
@@ -6,21 +6,14 @@
                 <th>Mastery</th>
             </tr>
         </thead>
-        <tbody *ngFor="let mymasteries of masteriesData?.pages; let i = index">
+        <tbody *ngFor="let mymasteries of masteriesData?.pages;">
             <tr>
-                <td>{{masteriesData?.pages[i]?.name}}</td>
-                <td *ngFor="let masteries of masteriesData?.pages[i]?.masteries; let n = index">
-                    <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/mastery/{{masteriesData?.pages[i]?.masteries[n]?.id}}.png" title="{{masteriesData?.pages[i]?.masteries[n]?.id}}">               
-                        {{masteriesData.pages[i]?.masteries[n]?.rank}}
+                <td>{{mymasteries.name}}</td>
+                <td *ngFor="let masteries of mymasteries.masteries">
+                    <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/mastery/{{masteries.id}}.png" title="{{masteries.id}}"> 
+                          {{masteries.rank}}
                 </td>
             </tr>
         </tbody>
     </table>
-</div-->
-<div *ngIf="masteriesData">
-    <div *ngFor="let mymasteries of masteriesData.pages"> {{mymasteries.name}}
-        <div *ngFor="let masteries of mymasteries.masteries | objectKeys">
-            <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/mastery/{{masteries.id}}.png" title="{{masteries.id}}"> {{masteries.rank}}
-        </div>
-    </div>
 </div>

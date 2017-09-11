@@ -40,9 +40,7 @@ export class MatchhistoryComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // Utilizar ngOnDestroy para hacer .unsubscribe de todos los observables utilizados
     this.subscriptions.forEach(subs => {
-      // console.log('Destroyed');
       subs.unsubscribe();
     });
   }

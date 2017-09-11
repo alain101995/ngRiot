@@ -21,19 +21,24 @@
   </table>
 </div-->
 
-<div class="container">
-
-  <div *ngIf="matchesData">
-
-    <div *ngFor="let matches of matchesData.matches | forRange: 20">
-      <div *ngFor="let champion of champions.data | objectKeys">
-        <div *ngIf="matches.champion == champion.key">
-          <img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/{{champion.id}}.png">          
-          {{matches.lane}}, {{matches.role}}, {{matches.season}}, {{matches.timestamp | date}}
+<div *ngIf="matchesData">
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let matches of matchesData.matches | forRange: 20">
+        <div *ngFor="let champion of champions.data | objectKeys">
+          <div *ngIf="matches.champion == champion.key">
+            <div class="card col-12" style="width: 12rem;">
+              <img class="card-img-top" style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/{{champion.id}}.png">
+              <div class="card-block">
+                <h4 class="card-title text-center">{{champion.name}}</h4>
+                <img class="card-img-top" style="vertical-align:middle" src="/assets/lanes/{{matches.lane}}.png">                
+                <p class="card-text text-center">{{matches.timestamp | date}}</p>
+                <!--a class="btn btn-primary"> {{matches.role}}, {{matches.season}}</a-->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
-  
 </div>

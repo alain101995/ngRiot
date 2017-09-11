@@ -11,6 +11,8 @@ import { IChampions } from '../types';
 export class ChampionsComponent implements OnInit {
   champions: any;
   championId: string;
+  championName: string;
+  championTitle: string;
   constructor(
     private riotService: RiotService,
   ) { }
@@ -22,9 +24,11 @@ export class ChampionsComponent implements OnInit {
     });
   }
 
-  getClickedId(hoveredChampion: string) {
-    console.log('Clicked Champion', hoveredChampion);
-    this.championId = hoveredChampion;
+  getClickedId(championId: string, championName: string, championTitle: string) {
+    console.log('Clicked Champion', championId);
+    this.championId = championId;
+    this.championName = championName;
+    this.championTitle = championTitle;
   }
 
 }
