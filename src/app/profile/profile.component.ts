@@ -15,8 +15,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
   champmData: IChampmData[];
-  champions: IChampions[];
+  champions: any;
   leagueData: ILeague[];
+  masteriesThree = [];
   dummyLeague = [];
   errorMessage = 'Something went wrong';
   playerData = this.riotService.currentPlayer;
@@ -27,7 +28,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.riotService.championsData().then(response => {
       this.champions = response;
-      console.log('Champ Response', response);
     });
 
     this.riotService.searchSubscription().subscribe(player => {
@@ -39,7 +39,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
       this.getChampmData(player.id);
       this.getLeagueData(player.id);
     });
-
     console.log('Current Player: ', this.riotService.currentPlayer);
     if (!this.riotService.currentPlayer) {
       return;
@@ -49,8 +48,24 @@ export class ProfileComponent implements OnInit, OnDestroy {
   getChampmData(playerId: number): void {
     this.subscriptions.push(
       this.riotService.champMasterie(playerId).subscribe(champmData => {
-        console.log('Champion Masterie Data: ', champmData);
         this.champmData = champmData;
+
+        this.masteriesThree.push( // Pusheo los primeros tres datos de champmData que corresponden a los 3 champions con mas mastery points.
+          this.champmData[0],
+          this.champmData[1],
+          this.champmData[2]
+        );
+        const test = new KeysPipe().transform(this.champions.data);
+        console.log(test[0].key); // <------ This
+        for (const championsObj of test) {
+          if (this.masteriesThree[0] === test.key) {
+            console.log('ChampionsObj: ', test.key);
+          }
+          // console.log('This', championsObj.data);
+        }
+
+
+        console.log('Masteries Three: ', this.masteriesThree);
       }, error => this.errorMessage = <string>error)
     );
   }
@@ -58,7 +73,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   getLeagueData(playerId: number): void {
     this.subscriptions.push(
       this.riotService.playerLeague(playerId).subscribe(leagueData => {
-        console.log('League Data: ', leagueData);
+        // console.log('League Data: ', leagueData);
         this.leagueData = leagueData;
         this.dummyLeague = leagueData;
         do {
@@ -67,7 +82,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
           }
         } while (this.dummyLeague.length < 3);
         console.log('Dummy league', this.dummyLeague);
-        console.log('Subscriptions', this.subscriptions);
+        // console.log('Subscriptions', this.subscriptions);
       }, error => this.errorMessage = <string>error)
     );
   }
