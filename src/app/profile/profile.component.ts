@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   champmData: IChampmData[];
   champions: any;
   leagueData: ILeague[];
+  finalMasteries = [];
   masteriesThree = [];
   dummyLeague = [];
   errorMessage = 'Something went wrong';
@@ -55,17 +56,17 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.champmData[1],
           this.champmData[2]
         );
-        const test = new KeysPipe().transform(this.champions.data);
-        console.log(test[0].key); // <------ This
-        for (const championsObj of test) {
-          if (this.masteriesThree[0] === test.key) {
-            console.log('ChampionsObj: ', test.key);
-          }
-          // console.log('This', championsObj.data);
+        ///////////////////////////////
+        let test = new KeysPipe().transform(this.champions.data);
+       // for (let n = 0; n < this.masteriesThree.length; n++) {
+          for (let i = 0; i < test.length; i++) {
+           // if (test[i].key == this.masteriesThree[n])
+              this.finalMasteries.push(test[i].name);
+              console.log('Hello', this.finalMasteries);
+         // }
         }
+        //  console.log(test[0].key); // <------ This
 
-
-        console.log('Masteries Three: ', this.masteriesThree);
       }, error => this.errorMessage = <string>error)
     );
   }
