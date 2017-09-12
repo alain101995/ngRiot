@@ -14,21 +14,22 @@ import { Subscription } from 'rxjs/Subscription';
 export class ProfileComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
-  champmData: IChampmData[];
-  champions: any;
-  leagueData: ILeague[];
-  finalMasteries = [];
-  masteriesThree = [];
-  dummyLeague = [];
-  errorMessage = 'Something went wrong';
   playerData = this.riotService.currentPlayer;
+  champmData: IChampmData[];
+  leagueData: ILeague[];
+  dummyLeague = [];
+  finalChampm = [];
+  champions: any;
+  errorMessage = 'Something went wrong';
+
   constructor(
     private riotService: RiotService,
   ) { }
 
   ngOnInit() {
-    this.riotService.championsData().then(response => {
-      this.champions = response;
+    this.riotService.champions().then(response => {
+      this.champions = this.riotService.championsMap;
+      // console.log('Mapped champions: ', this.champions);
     });
 
     this.riotService.searchSubscription().subscribe(player => {
@@ -49,24 +50,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
   getChampmData(playerId: number): void {
     this.subscriptions.push(
       this.riotService.champMasterie(playerId).subscribe(champmData => {
+        this.finalChampm = [];
         this.champmData = champmData;
-
-        this.masteriesThree.push( // Pusheo los primeros tres datos de champmData que corresponden a los 3 champions con mas mastery points.
-          this.champmData[0],
-          this.champmData[1],
-          this.champmData[2]
-        );
-        ///////////////////////////////
-        let test = new KeysPipe().transform(this.champions.data);
-       // for (let n = 0; n < this.masteriesThree.length; n++) {
-          for (let i = 0; i < test.length; i++) {
-           // if (test[i].key == this.masteriesThree[n])
-              this.finalMasteries.push(test[i].name);
-              console.log('Hello', this.finalMasteries);
-         // }
+        console.log(champmData);
+        for (let n = 0; n < 3; n++) {
+          this.finalChampm.push(this.champions[champmData[n].championId]);
         }
-        //  console.log(test[0].key); // <------ This
-
+        console.log('Final Masteries', this.finalChampm);
       }, error => this.errorMessage = <string>error)
     );
   }
@@ -83,7 +73,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
           }
         } while (this.dummyLeague.length < 3);
         console.log('Dummy league', this.dummyLeague);
-        // console.log('Subscriptions', this.subscriptions);
       }, error => this.errorMessage = <string>error)
     );
   }

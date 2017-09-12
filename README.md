@@ -1,15 +1,19 @@
 # Remaining tasks
-- Add popups on respective componentens.
+- Show modal when a champion is clicked, add champion abilities.
 - Add design to all components.
 https://stackoverflow.com/questions/35475633/change-div-content-dynamically-on-ng-click-angularjs
 - Add progress bars on components
  USEFUL BACKGROUND https://css-tricks.com/perfect-full-page-background-image/
- 
+ - Check if data exist in textbox - navbar
 # Current doubts
 
 - What's a Constructor
 - Observables
 - Pipes
+- Closure
+- Practicas usando map, observable and pipes.
+
+http://reactivex.io/rxjs/
 
 https://electron.atom.io/
 
@@ -36,15 +40,3 @@ http://jasonwatmore.com/post/2016/12/01/angular-2-communicating-between-componen
 # Pipes
 http://www.concretepage.com/angular-2/images/angular-2-custom-pipe-example-1.jpg
 http://www.concretepage.com/angular-2/angular-2-custom-pipe-example
-
-Angular 2 1/5
-HTML	2/5
-JQuery	1/5
-Unity3D 	1/5
-Bootstrap 2/5
-Java 2/5
-MySQL 2/5
-Visual Basic 1/5
-CSS 1/5
-Javascript 2/5
-PHP 1/5
