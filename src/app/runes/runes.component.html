@@ -15,7 +15,8 @@
                                 <div *ngFor="let runesProp of runesData.data | objectKeys">
                                     <div *ngIf="runesProp.propKey == r.propKey">
                                        <!-- {{runesProp.name}} -->
-                                        <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/rune/{{runesProp.image.full}}" title="{{runesProp.description}}">                                        x {{runes.runes[r.propKey]}} {{runesProp.description}}
+                                        <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/rune/{{runesProp.image.full}}" title="{{runesProp.description}}">                                        
+                                            x {{runes.runes[r.propKey]}} {{runesProp.description}}
                                     </div>
                                 </div>
                             </div>

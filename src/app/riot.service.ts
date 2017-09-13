@@ -67,7 +67,6 @@ export class RiotService {
       .map(response => response.json());
   }
 
-
   champions() {
     return this.http
       .get(`assets/champions.json`)
@@ -106,7 +105,8 @@ export class RiotService {
   championInfo(champion: string) {
     return this.http
     .get(`http://ddragon.leagueoflegends.com/cdn/7.17.2/data/en_US/champion/${champion}.json`)
-    .map(response => response.json());
+    .map(response => response.json())
+    .toPromise();
   }
 }
 

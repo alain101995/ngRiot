@@ -29,15 +29,19 @@
                         </h5>
                     </div>
                     <div id="{{mymasteries.id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="card-block">
-                            <div *ngFor="let masteries of mymasteries.masteries">
-                                <!-- {{runesProp.name}} -->
-                                <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/mastery/{{masteries.id}}.png" title="{{masteries.id}}">
-
+                        <div class="container">
+                            <div class="row">
+                                <div *ngFor="let masteries of mymasteries.masteries">
+                                    <!-- {{runesProp.name}} -->
+                                    <div class="col-1">
+                                        <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/mastery/{{masteries.id}}.png" title="{{masteries.id}}">                              
+                                              {{masteries.rank}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
-</div>

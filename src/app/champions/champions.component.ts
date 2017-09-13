@@ -10,9 +10,10 @@ import { IChampions } from '../types';
 
 export class ChampionsComponent implements OnInit {
   champions: any;
-  championId: string;
-  championName: string;
-  championTitle: string;
+  championData = {};
+  championInfo: any;
+  championLore: string;
+  championSpells = [];
   constructor(
     private riotService: RiotService,
   ) { }
@@ -25,11 +26,24 @@ export class ChampionsComponent implements OnInit {
   }
 
   getClickedId(championId: string, championName: string, championTitle: string) {
-    console.log('Clicked Champion', championId);
-    this.championId = championId;
-    this.championName = championName;
-    this.championTitle = championTitle;
+    this.championData['id'] = championId;
+    this.championData['name'] = championName;
+    this.championData['title'] = championTitle;
+    console.log('Hovered Champion', this.championData);
   }
 
+  getChampInfo(champion: string) {
+    this.riotService.championInfo(champion).then(response => {
+      // this.championInfo = response;
+      this.championSpells = [];
+      for (const spells of response.data[champion].spells) {
+        this.championSpells.push(
+          spells.image.full
+        );
+      }
+      console.log('Champion Spells', this.championSpells);
+      // this.championLore = response.data[champion].spells[0].image.full;
+      // console.log('Champion Lore', this.championLore);
+    });
+  }
 }
-

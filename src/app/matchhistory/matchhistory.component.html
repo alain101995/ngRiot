@@ -27,7 +27,7 @@
       <div *ngFor="let matches of matchesData.matches | forRange: 20">
         <div *ngFor="let champion of champions.data | objectKeys">
           <div *ngIf="matches.champion == champion.key">
-            <div class="card col-12" style="width: 12rem;">
+            <div class="card col-10" style="width: 13rem;">
               <img class="card-img-top" style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/{{champion.id}}.png">
               <div class="card-block">
                 <h4 class="card-title text-center">{{champion.name}}</h4>
