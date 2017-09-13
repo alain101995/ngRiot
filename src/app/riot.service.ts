@@ -102,5 +102,11 @@ export class RiotService {
       .map(response => response.json())
       .toPromise();
   }
+
+  championInfo(champion: string) {
+    return this.http
+    .get(`http://ddragon.leagueoflegends.com/cdn/7.17.2/data/en_US/champion/${champion}.json`)
+    .map(response => response.json());
+  }
 }
 
