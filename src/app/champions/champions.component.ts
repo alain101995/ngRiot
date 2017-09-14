@@ -12,8 +12,8 @@ export class ChampionsComponent implements OnInit {
   champions: any;
   championData = {};
   championInfo: any;
-  championLore: string;
   championSpells = [];
+  spellsName = [];
   constructor(
     private riotService: RiotService,
   ) { }
@@ -36,14 +36,18 @@ export class ChampionsComponent implements OnInit {
     this.riotService.championInfo(champion).then(response => {
       // this.championInfo = response;
       this.championSpells = [];
+      this.spellsName = [];
+      console.log(response);
+      
       for (const spells of response.data[champion].spells) {
         this.championSpells.push(
           spells.image.full
+        ),
+        this.spellsName.push(
+          spells.name
         );
       }
       console.log('Champion Spells', this.championSpells);
-      // this.championLore = response.data[champion].spells[0].image.full;
-      // console.log('Champion Lore', this.championLore);
     });
   }
 }
