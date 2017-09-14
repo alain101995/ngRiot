@@ -19,36 +19,32 @@
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Spells</h5>
+                <h5 class="modal-title">Spells</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
             </div>
 
             <div class="modal-body">
-                <div *ngFor="let spell of championSpells; let i = index">
-                    <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/{{spell}}"> {{spellsName[i]}}       
+                <div *ngFor="let spell of championSpells">
+                    <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/spell/{{spell.image}}"> {{spell.name}}
+                </div>
             </div>
-            </div>
-
             <!--div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div-->
-
         </div>
     </div>
-</div> 
-
+</div>
 
 <div class="container">
     <div class="row">
         <div class="col-9" *ngIf="champions">
             <div *ngFor="let champions of champions.data | objectKeys">
+                
                 <img style="vertical-align:middle; float:left;" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/{{champions.image.full}}"
-                    title="{{champions.name}}, {{champions.title}}" (mouseover)="getClickedId(champions.id, champions.name, champions.title)"
-                    (mouseover)="getChampInfo(champions.id)">
+                    title="{{champions.name}}, {{champions.title}}" (click)="setChampionImage(champions.id, champions.name, champions.title)">
             </div>
         </div>
         <div class="col-3 sidebar-outer" *ngIf="championData.id">

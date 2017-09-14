@@ -20,7 +20,7 @@ export class RunesComponent implements OnInit, OnDestroy {
 
     this.riotService.runes().then(response => {
       this.runesData = response;
-      console.log('Runes: ', response);
+      // console.log('Runes: ', response);
     });
 
     this.riotService.searchSubscription().subscribe(player => {
@@ -49,14 +49,7 @@ export class RunesComponent implements OnInit, OnDestroy {
   getRunesData(playerId: number): void {
     this.subscription.push(
       this.riotService.playerRunes(playerId).subscribe(runesData => {
-
-        console.log('Runes Data: ', runesData);
-
-        // this.runePages = runesData;
         this.runesObject = this.runesCounter(runesData);
-
-        console.log('Runes Object: ', this.runesObject);
-
       }, error => this.errorMessage = <string>error)
     );
   }

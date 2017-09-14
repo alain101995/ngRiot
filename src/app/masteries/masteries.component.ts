@@ -18,10 +18,12 @@ export class MasteriesComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+   /*
     this.riotService.masteries().then(response => {
       this.masteriesProp = response;
       console.log('Masteries: ', response);
     });
+    */
     this.riotService.searchSubscription().subscribe(player => {
       if (!player) {
         return;

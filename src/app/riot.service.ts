@@ -10,6 +10,8 @@ import 'rxjs/add/operator/map';
 export class RiotService {
   public currentPlayer: IPlayer;
   public championsMap: any = {};
+  public championsInfo: any = {};
+  public storedRunes: any = {};
   constructor(private http: Http) { }
 
   // La diferencia entre Subject y BehaviorSubject es que BehaviorSubject
@@ -41,6 +43,16 @@ export class RiotService {
     return this.http
       .get(`http://localhost:3000/api/runes/${playerId}`)
       .map(response => response.json());
+
+      /* Here
+      https://stackoverflow.com/questions/16010827/html5-localstorage-checking-if-a-key-exists
+      if (this.storedRunes) {
+        return this.storedRunes;
+      }
+     return this.storedRunes;
+      console.log('This', this.storedRunes);
+      */
+
   }
 
   playerMasteries(playerId: number) {
@@ -88,7 +100,7 @@ export class RiotService {
       .toPromise();
   }
 
-  masteries() {
+  masteries(): Promise<any> {
     return this.http
       .get(`assets/masteries.json`)
       .map(response => response.json())
@@ -102,11 +114,16 @@ export class RiotService {
       .toPromise();
   }
 
-  championInfo(champion: string) {
-    return this.http
-    .get(`http://ddragon.leagueoflegends.com/cdn/7.17.2/data/en_US/champion/${champion}.json`)
-    .map(response => response.json())
-    .toPromise();
+  championInfo(champion: string): Promise<any> {
+    if (this.championInfo[champion]) {
+      return this.championInfo[champion];
+    }
+
+    this.championInfo[champion] = this.http
+      .get(`http://ddragon.leagueoflegends.com/cdn/7.17.2/data/en_US/champion/${champion}.json`)
+      .map(response => response.json())
+      .toPromise();
+    return this.championInfo[champion];
   }
 }
 
