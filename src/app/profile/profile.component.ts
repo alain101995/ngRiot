@@ -50,9 +50,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
   getChampmData(playerId: number): void {
     this.subscriptions.push(
       this.riotService.champMasterie(playerId).subscribe(champmData => {
+        console.log('HEY', champmData);
         this.finalChampm = [];
         this.champmData = champmData;
-        console.log(champmData);
         for (let n = 0; n < 3; n++) {
           this.finalChampm.push(this.champions[champmData[n].championId]);
         }

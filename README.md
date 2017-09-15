@@ -6,38 +6,6 @@ https://stackoverflow.com/questions/35475633/change-div-content-dynamically-on-n
  USEFUL BACKGROUND https://css-tricks.com/perfect-full-page-background-image/
  - Check if data exist in textbox - navbar
  
- Guardar request ‘getplayerId’ de riotapi2 en cache.
-Si la respuesta existe en la base de datos, cargar respuesta del cache.
-Si la respuesta no existe se guardará en el cache y se almacenará en la base de datos.
-Si el usuario lo require, tras un evento se forzará la petición y sobre escribirá la respuesta en la base de datos.
-Actualizar cache después del tiempo propuesto.
-
-
-
-  Hacer petición, si existe en la base de datos lo carga de la base de datos, si no, guarda la respuesta de la petición en la base de datos.
-  Si es la misma petición, usar la que se encuentra en cache.
-  Si se envía yellow flag actualizar request y base de datos.
-
-  save data on cache using  'localStorage'
-
-  localStorage.getItem
-
-  var stored = localStorage['myKey'];
-  if (stored) 
-  myVar = JSON.parse(stored);
-  else myVar = {a:'test', b: [1, 2, 3]};    
-
-  Caso 1: Cachear peticion de riot con duración de 1 día, usuario hace busqueda y la cachea (cuando presiona el botón guarda la busqueda en caché)
-
-  Caso 2: Usuario consulta datos cacheados del mismo día, Si existe en cache cargarlos localstorage.getItem(data)
-  if (localStorage.getItem(data) === null) {
-    //...
-  }
-
-  Caso 3: Usuario hace consulta forzando petición riot (actualizando cache), Usuario presiona boton para actualizar realizar la request y la información del cache
-
-  Caso 4: Caché expiró y se debe actualizar. Después de 1 día se realiza otra request para actualizar la base de datos.
-
 
 # Current doubts
 
@@ -46,6 +14,7 @@ Actualizar cache después del tiempo propuesto.
 - Pipes
 - Closure
 - Practicas usando map, observable and pipes.
+- Unit testing
 
 http://reactivex.io/rxjs/
 
@@ -74,3 +43,35 @@ http://jasonwatmore.com/post/2016/12/01/angular-2-communicating-between-componen
 # Pipes
 http://www.concretepage.com/angular-2/images/angular-2-custom-pipe-example-1.jpg
 http://www.concretepage.com/angular-2/angular-2-custom-pipe-example
+
+# Cache cases
+ Guardar request ‘getplayerId’ de riotapi2 en cache.
+Si la respuesta existe en la base de datos, cargar respuesta del cache.
+Si la respuesta no existe se guardará en el cache y se almacenará en la base de datos.
+Si el usuario lo require, tras un evento se forzará la petición y sobre escribirá la respuesta en la base de datos.
+Actualizar cache después del tiempo propuesto.
+
+Hacer petición, si existe en la base de datos lo carga de la base de datos, si no, guarda la respuesta de la petición en la base de datos.
+Si es la misma petición, usar la que se encuentra en cache.
+Si se envía yellow flag actualizar request y base de datos.
+
+save data on cache using  'localStorage'
+
+localStorage.getItem
+
+var stored = localStorage['myKey'];
+if (stored) 
+myVar = JSON.parse(stored);
+else myVar = {a:'test', b: [1, 2, 3]};    
+
+Caso 1: Cachear peticion de riot con duración de 1 día, usuario hace busqueda y la cachea (cuando presiona el botón guarda la busqueda en caché)
+
+Caso 2: Usuario consulta datos cacheados del mismo día, Si existe en cache cargarlos localstorage.getItem(data)
+if (localStorage.getItem(data) === null) {
+  //...
+}
+
+Caso 3: Usuario hace consulta forzando petición riot (actualizando cache), Usuario presiona boton para actualizar realizar la request y la información del cache
+
+Caso 4: Caché expiró y se debe actualizar. Después de 1 día se realiza otra request para actualizar la base de datos.
+

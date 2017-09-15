@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { IPlayer } from './types';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+// import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
@@ -12,6 +13,7 @@ export class RiotService {
   public championsMap: any = {};
   public championsInfo: any = {};
   public storedRunes: any = {};
+  public storedMasteries: any = {};
   constructor(private http: Http) { }
 
   // La diferencia entre Subject y BehaviorSubject es que BehaviorSubject
@@ -21,6 +23,11 @@ export class RiotService {
   // Por otro lado, Subject solo se encarga de distribuir nuevos eventos,
   // sin almacenar el valor previo y sin actualizar a los componentes recien subscritos
   private searchSubject: BehaviorSubject<IPlayer> = new BehaviorSubject(this.currentPlayer);
+  private storedPlayerMatches: any = {};
+  private storedPlayerId: any = {};
+  private storedPlayerMasteries: any = {};
+  private storedPlayerRunes: any = {};
+  private storedChampm: any = {};
 
   searchSubscription(): Observable<IPlayer> {
     return this.searchSubject.asObservable();
@@ -30,54 +37,109 @@ export class RiotService {
     this.currentPlayer = player;
     console.log('Player', player);
     this.searchSubject.next(player); // Aqui distribuye a los subscriptores
+    /*
+       return this.http
+      .get(`http://localhost:3000/api/playerid/${playerName}`)
+      .map(response => response.json())
+      .toPromise();
+      */
   }
-
+  // -----------PLAYER ID---------
   playerId(playerName: string) {
     return this.http
       .get(`http://localhost:3000/api/playerid/${playerName}`)
       .map(response => response.json())
       .toPromise();
   }
-
+  // -----------PLAYER RUNES---------
   playerRunes(playerId: number) {
     return this.http
       .get(`http://localhost:3000/api/runes/${playerId}`)
       .map(response => response.json());
-
-      /* Here
-      https://stackoverflow.com/questions/16010827/html5-localstorage-checking-if-a-key-exists
-      if (this.storedRunes) {
-        return this.storedRunes;
-      }
-     return this.storedRunes;
-      console.log('This', this.storedRunes);
-      */
-
   }
 
+  // -----------PLAYER MASTERIES---------
   playerMasteries(playerId: number) {
-    return this.http
+
+    if (!this.storedPlayerMasteries[playerId]) {
+      this.loadPlayerMasteries(playerId);
+    }
+
+    return this.storedPlayerMasteries[playerId].asObservable();
+  }
+
+  private loadPlayerMasteries(playerId: number) {
+
+    this.storedPlayerMasteries[playerId] = new BehaviorSubject<IPlayer>(null);
+
+    this.http
       .get(`http://localhost:3000/api/masteries/${playerId}`)
-      .map(response => response.json());
+      .map(response => response.json())
+      .toPromise()
+      .then(masteries => {
+        this.storedPlayerMasteries[playerId].next(masteries);
+      });
   }
-
+  // -----------CHAMP MASTERIES---------
   champMasterie(playerId: number) {
-    return this.http
-      .get(`http://localhost:3000/api/champm/${playerId}`)
-      .map(response => response.json());
+
+
+    if (!this.storedChampm[playerId]) {
+      console.log('Hey', this.storedChampm);
+      this.loadChampm(playerId);
+    }
+    console.log('Hey2', this.storedChampm);
+    
+    return this.storedChampm[playerId].asObservable();
   }
 
+  private loadChampm(playerId: number) {
+
+    this.storedChampm[playerId] = new BehaviorSubject<IPlayer>(null);
+
+    this.http
+      .get(`http://localhost:3000/api/champm/${playerId}`)
+      .map(response => response.json())
+      .toPromise()
+      .then(champm => {
+        console.log('Bye', this.storedChampm);
+        this.storedChampm[playerId].next(champm);
+      });
+  }
+    /*
+     return this.http
+       .get(`http://localhost:3000/api/champm/${playerId}`)
+       .map(response => response.json());
+     */
+  // -----------PLAYER LEAGUE---------
   playerLeague(playerId: any) {
     return this.http
       .get(`http://localhost:3000/api/league/${playerId}`)
       .map(response => response.json());
   }
-
+  // -----------PLAYER MATCHES---------
   playerMatches(accountId: number) {
-    return this.http
-      .get(`http://localhost:3000/api/matches/${accountId}`)
-      .map(response => response.json());
+    if (!this.storedPlayerMatches[accountId]) {
+      this.loadPlayerMatches(accountId);
+    }
+    return this.storedPlayerMatches[accountId].asObservable();
   }
+
+  private loadPlayerMatches(accountId: number) {
+    this.storedPlayerMatches[accountId] = new BehaviorSubject<IPlayer>(null);
+    this.http
+      .get(`http://localhost:3000/api/matches/${accountId}`)
+      .map(response => response.json())
+      .toPromise()
+      .then(matches => {
+        console.log('HEY', this.storedPlayerMatches[accountId]);
+        this.storedPlayerMatches[accountId].next(matches);
+      });
+  }
+  /* return this.http
+  .get(`http://localhost:3000/api/matches/${accountId}`)
+  .map(response => response.json());
+*/
 
   champions() {
     return this.http
@@ -93,18 +155,34 @@ export class RiotService {
       });
   }
 
-  runes() {
-    return this.http
+  runes(): Promise<any> {
+
+    if (this.storedRunes.runes) {
+      console.log('Theres data', this.storedRunes.runes);
+      return this.storedRunes.runes;
+    }
+
+    console.log('Theres no data', this.storedRunes.runes);
+    this.storedRunes.runes = this.http
       .get(`assets/runes.json`)
       .map(response => response.json())
       .toPromise();
+    return this.storedRunes.runes;
   }
 
   masteries(): Promise<any> {
-    return this.http
+
+    if (this.storedMasteries.masteries) {
+      console.log('There are masteries: ', this.storedMasteries.masteries);
+      return this.storedMasteries.masteries;
+    }
+
+    console.log('There are no masteries: ', this.storedMasteries.masteries);
+    this.storedMasteries.masteries = this.http
       .get(`assets/masteries.json`)
       .map(response => response.json())
       .toPromise();
+    return this.storedMasteries.masteries;
   }
 
   championsData() {

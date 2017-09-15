@@ -17,7 +17,6 @@ export class RunesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
     this.riotService.runes().then(response => {
       this.runesData = response;
       // console.log('Runes: ', response);
@@ -49,6 +48,7 @@ export class RunesComponent implements OnInit, OnDestroy {
   getRunesData(playerId: number): void {
     this.subscription.push(
       this.riotService.playerRunes(playerId).subscribe(runesData => {
+        console.log(runesData);
         this.runesObject = this.runesCounter(runesData);
       }, error => this.errorMessage = <string>error)
     );
