@@ -1,26 +1,3 @@
-<!--div class="container">
-  <table class="table table-responsive">
-    <thead>
-      <tr>
-        <th>Champion</th>
-        <th>Lane</th>
-        <th>Role</th>
-        <th>Season</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let matches of matchesData?.matches">
-      <tr *ngFor="let obj of champions?.data | objectKeys">
-        <td *ngIf="matches.champion == obj.id"><img style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.16.1/img/champion/{{obj.key}}.png"></td>
-        <td>{{matches.lane}}</td>
-        <td>{{matches.role}}</td>
-        <td>{{matches.season}}</td>
-        <td>{{matches.timestamp | date}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div-->
-
 <div *ngIf="matchesData">
   <div class="container">
     <div class="row">
@@ -28,7 +5,7 @@
         <div *ngFor="let champion of champions.data | objectKeys">
           <div *ngIf="matches.champion == champion.key">
             <div class="card col-10" style="width: 13rem;">
-              <img class="card-img-top" style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/{{champion.id}}.png">
+              <img class="card-img-top" style="vertical-align:middle" src="http://ddragon.leagueoflegends.com/cdn/7.18.1/img/champion/{{champion.id}}.png">
               <div class="card-block">
                 <h4 class="card-title text-center">{{champion.name}}</h4>
                 <img class="card-img-top" style="vertical-align:middle" src="/assets/lanes/{{matches.lane}}.png">                

@@ -29,6 +29,7 @@ export class RunesComponent implements OnInit, OnDestroy {
       this.getRunesData(player.id);
       console.log(player.id);
     });
+  }
     /*
     USING PROMISES
     this.riotService.playerRunes(this.riotService.currentPlayer.id).then(response => {
@@ -36,8 +37,6 @@ export class RunesComponent implements OnInit, OnDestroy {
       console.log(response);
     });
     */
-  }
-
   ngOnDestroy() {
     this.subscription.forEach(subs => {
       // console.log('Destroyed');
@@ -48,7 +47,7 @@ export class RunesComponent implements OnInit, OnDestroy {
   getRunesData(playerId: number): void {
     this.subscription.push(
       this.riotService.playerRunes(playerId).subscribe(runesData => {
-        console.log(runesData);
+        console.log('Runes Data(Component): ', runesData);
         this.runesObject = this.runesCounter(runesData);
       }, error => this.errorMessage = <string>error)
     );

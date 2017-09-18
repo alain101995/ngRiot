@@ -1,22 +1,3 @@
-<!--div *ngIf="masteriesData">
-    <table class="table table-responsive">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Mastery</th>
-            </tr>
-        </thead>
-        <tbody *ngFor="let mymasteries of masteriesData?.pages;">
-            <tr>
-                <td>{{mymasteries.name}}</td>
-                <td *ngFor="let masteries of mymasteries.masteries">
-                    <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/mastery/{{masteries.id}}.png" title="{{masteries.id}}">                    {{masteries.rank}}
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div-->
-
 <div *ngIf="masteriesData">
     <div class="container">
         <div id="accordion" role="tablist" aria-multiselectable="true">
@@ -34,7 +15,7 @@
                                 <div *ngFor="let masteries of mymasteries.masteries">
                                     <!-- {{runesProp.name}} -->
                                     <div class="col-1">
-                                        <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/mastery/{{masteries.id}}.png" title="{{masteries.id}}">                              
+                                        <img src="http://ddragon.leagueoflegends.com/cdn/7.18.1/img/mastery/{{masteries.id}}.png" title="{{masteries.id}}">                              
                                               {{masteries.rank}}
                                     </div>
                                 </div>

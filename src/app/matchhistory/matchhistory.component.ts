@@ -39,12 +39,6 @@ export class MatchhistoryComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnDestroy() {
-    this.subscriptions.forEach(subs => {
-      subs.unsubscribe();
-    });
-  }
-
   getMatchesData(accountId: number): void {
     this.subscriptions.push(
       this.riotService.playerMatches(accountId).subscribe(matchesData => {
@@ -54,6 +48,11 @@ export class MatchhistoryComponent implements OnInit, OnDestroy {
     );
   }
 
+  ngOnDestroy() {
+    this.subscriptions.forEach(subs => {
+      subs.unsubscribe();
+    });
+  }
 }
     /*
         this.riotService.champions().then(response => {

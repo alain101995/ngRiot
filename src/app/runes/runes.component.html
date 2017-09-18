@@ -15,7 +15,7 @@
                                 <div *ngFor="let runesProp of runesData.data | objectKeys">
                                     <div *ngIf="runesProp.propKey == r.propKey">
                                        <!-- {{runesProp.name}} -->
-                                        <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/rune/{{runesProp.image.full}}" title="{{runesProp.description}}">                                        
+                                        <img src="http://ddragon.leagueoflegends.com/cdn/7.18.1/img/rune/{{runesProp.image.full}}" title="{{runesProp.description}}">                                        
                                             x {{runes.runes[r.propKey]}} {{runesProp.description}}
                                     </div>
                                 </div>
@@ -27,60 +27,3 @@
         </div>
     </div>
 </div>
-
-<!--div *ngIf="runesObject">
-    <div class="container">
-        <div *ngFor="let runes of runesObject ">
-            <h3> {{runes.name}} </h3>
-            <div *ngFor="let r of runes.runes | objectKeys">
-                <div *ngFor="let runesProp of runesData.data | objectKeys">
-                    <div *ngIf="runesProp.propKey == r.propKey">
-                        {{runesProp.name}}
-                        <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/rune/{{runesProp.image.full}}" title="{{runesProp.description}}">                        
-                            x {{runes.runes[r.propKey]}} {{runesProp.description}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div-->
-
-<!--
-<div id="accordion" role="tablist" aria-multiselectable="true">
-
-    <div class="card">
-        <div class="card-header" role="tab" id="headingOne">
-            <h5 class="mb-0">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Collapsible Group Item #1
-              </a>
-            </h5>
-        </div>
-
-        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-            <div class="card-block">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch.
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header" role="tab" id="headingTwo">
-            <h5 class="mb-0">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Collapsible Group Item #2
-              </a>
-            </h5>
-        </div>
-
-        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-            <div class="card-block">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch.
-            </div>
-        </div>
-    </div>
-
-</div>
--->

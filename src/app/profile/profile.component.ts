@@ -14,7 +14,6 @@ import { Subscription } from 'rxjs/Subscription';
 export class ProfileComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
 
-  playerData = this.riotService.currentPlayer;
   champmData: IChampmData[];
   leagueData: ILeague[];
   dummyLeague = [];
@@ -36,10 +35,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
       if (!player) {
         return;
       }
-      this.playerData = player;
-      console.log('Player ID: ', player.id);
-      this.getChampmData(player.id);
+      this.getChampMasterie(player.id);
       this.getLeagueData(player.id);
+      console.log('Player ID: ', player.id);
     });
     console.log('Current Player: ', this.riotService.currentPlayer);
     if (!this.riotService.currentPlayer) {
@@ -47,14 +45,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
     }
   }
 
-  getChampmData(playerId: number): void {
+  getChampMasterie(playerId: number): void {
     this.subscriptions.push(
       this.riotService.champMasterie(playerId).subscribe(champmData => {
-        console.log('HEY', champmData);
+        console.log('ChampmData', champmData);
         this.finalChampm = [];
         this.champmData = champmData;
         for (let n = 0; n < 3; n++) {
           this.finalChampm.push(this.champions[champmData[n].championId]);
+          console.log(this.champmData);
         }
         console.log('Final Masteries', this.finalChampm);
       }, error => this.errorMessage = <string>error)
@@ -65,7 +64,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.riotService.playerLeague(playerId).subscribe(leagueData => {
         // console.log('League Data: ', leagueData);
-        this.leagueData = leagueData;
+        // this.leagueData = leagueData;
         this.dummyLeague = leagueData;
         do {
           if (this.dummyLeague.length < 3) {

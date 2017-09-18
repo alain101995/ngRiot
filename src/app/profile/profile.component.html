@@ -18,18 +18,18 @@
       <div class="carousel-item">
         <img class="d-block img-fluid" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{finalChampm[1]}}_0.jpg"
           alt="Second slide">
-          <div class="carousel-caption d-none d-md-block">
-              <img src="assets/masteries/{{champmData[1].championLevel}}.png">
-              <!--h3>{{champmData[1].championPoints}}</h3-->
-            </div>
+        <div class="carousel-caption d-none d-md-block">
+          <img src="assets/masteries/{{champmData[1].championLevel}}.png">
+          <!--h3>{{champmData[1].championPoints}}</h3-->
+        </div>
       </div>
       <div class="carousel-item">
         <img class="d-block img-fluid" src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{finalChampm[2]}}_0.jpg"
           alt="Third slide">
-          <div class="carousel-caption d-none d-md-block">
-              <img src="assets/masteries/{{champmData[2].championLevel}}.png">
-              <!--h3>{{champmData[2].championPoints}}</h3-->
-            </div>
+        <div class="carousel-caption d-none d-md-block">
+          <img src="assets/masteries/{{champmData[2].championLevel}}.png">
+          <!--h3>{{champmData[2].championPoints}}</h3-->
+        </div>
       </div>
     </div>
 
@@ -60,34 +60,3 @@
     </div>
   </div>
 </div>
-<!-- 
-  <div *ngIf="champmData">
-  <div class="jumbotron">
-    <div class="container">
-      <div class="row">
-        <div class="col-4">
-          <img src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/profileicon/{{playerData?.profileIconId}}.png">
-        </div>
-        <div class="col-4">
-          <h1 class="display-3">{{playerData.name}}</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4" *ngFor="let champm of champmData | forRange: 3">
-          <div *ngFor="let champions of champions.data | objectKeys">
-            <div *ngIf="champm.championId == champions.key">
-              <img style="vertical-align:middle" class="rounded-circle" src="http://ddragon.leagueoflegends.com/cdn/7.17.2/img/champion/{{champions.id}}.png"
-                title="{{champm.championPoints}}, {{champm.championLevel}}">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div *ngFor="let champions of champions.data | objectKeys">
-    <div *ngIf="champm.championId == champions.key">
-    </div>
-  </div>
--->
