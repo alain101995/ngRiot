@@ -28,6 +28,7 @@ export class RiotService {
   private storedPlayerMasteries: any = {};
   private storedPlayerRunes: any = {};
   private storedChampm: any = {};
+  private storedPlayerLeague: any = {};
 
   searchSubscription(): Observable<IPlayer> {
     return this.searchSubject.asObservable();
@@ -82,41 +83,42 @@ export class RiotService {
   }
   // -----------CHAMP MASTERIES---------
   champMasterie(playerId: number) {
-
-
-    if (!this.storedChampm[playerId]) {
-      console.log('Hey', this.storedChampm);
-      this.loadChampm(playerId);
+   /*  if (!this.storedChampm[playerId]) {
+      this.loadChampMasteries(playerId);
     }
-    console.log('Hey2', this.storedChampm);
-    
     return this.storedChampm[playerId].asObservable();
   }
-
-  private loadChampm(playerId: number) {
-
+  private loadChampMasteries(playerId: number) {
     this.storedChampm[playerId] = new BehaviorSubject<IPlayer>(null);
-
     this.http
       .get(`http://localhost:3000/api/champm/${playerId}`)
       .map(response => response.json())
       .toPromise()
-      .then(champm => {
-        console.log('Bye', this.storedChampm);
-        this.storedChampm[playerId].next(champm);
-      });
   }
-    /*
+    */
      return this.http
        .get(`http://localhost:3000/api/champm/${playerId}`)
        .map(response => response.json());
-     */
+}
   // -----------PLAYER LEAGUE---------
-  playerLeague(playerId: any) {
-    return this.http
-      .get(`http://localhost:3000/api/league/${playerId}`)
-      .map(response => response.json());
+  playerLeague(playerId: any) { 
+    if (!this.storedPlayerLeague[playerId]) {
+      this.loadPlayerLeague(playerId);
+    }
+    return this.storedPlayerLeague[playerId].asObservable();
   }
+
+  private loadPlayerLeague(playerId: number) {
+    this.storedPlayerLeague[playerId] = new BehaviorSubject<IPlayer>(null);
+    this.http
+      .get(`http://localhost:3000/api/league/${playerId}`)
+      .map(response => response.json())
+      .toPromise()
+      .then(playerLeague => {
+        console.log('HEY', this.storedPlayerLeague[playerId]);
+        this.storedPlayerLeague[playerId]._value.next(playerLeague);
+      });
+}
   // -----------PLAYER MATCHES---------
   playerMatches(accountId: number) {
     if (!this.storedPlayerMatches[accountId]) {
