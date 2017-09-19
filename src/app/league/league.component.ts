@@ -19,14 +19,13 @@ export class LeagueComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-
     this.riotService.searchSubscription().subscribe(player => {
       if (!player) {
         return;
       }
 
-      this.playerData = player;
-      console.log('Player Data', this.playerData);
+      // this.playerData = player;
+      // console.log('Player Data', this.playerData);
 
       this.getLeagueData(player.id);
       console.log('Data', player.id);
@@ -36,14 +35,14 @@ export class LeagueComponent implements OnInit, OnDestroy {
     if (!this.riotService.currentPlayer) {
       return;
     }
-
-    /* USING PROMISES
+  }
+  /* USING PROMISES
 this.riotService.playerLeague(this.riotService.currentPlayer.id).then(response => {
-  this.leagueData = response;
-  console.log(response);
+this.leagueData = response;
+console.log(response);
 });
 */
-  }
+
 
   getLeagueData(playerId: number): void {
     this.subscriptions.push(

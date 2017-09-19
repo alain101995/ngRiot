@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.riotService.champions().then(response => {
-      this.champions = this.riotService.championsMap;
+      this.champions = this.riotService.championsMap; //this.riotService.championsMap;
       // console.log('Mapped champions: ', this.champions);
     });
 
@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         return;
       }
       this.getChampMasterie(player.id);
-      // this.getLeagueData(player.id);
+      this.getLeagueData(player.id);
       console.log('Player ID: ', player.id);
     });
     console.log('Current Player: ', this.riotService.currentPlayer);
@@ -48,18 +48,24 @@ export class ProfileComponent implements OnInit, OnDestroy {
   getChampMasterie(playerId: number): void {
     this.subscriptions.push(
       this.riotService.champMasterie(playerId).subscribe(champmData => {
-        console.log('ChampmData(Component)', champmData);
-        this.finalChampm = [];
-        this.champmData = champmData;
-        for (let n = 0; n < 3; n++) {
-          this.finalChampm.push(this.champions[champmData[n].championId]);
-          console.log(this.champmData);
-        }
-        console.log('Final Masteries', this.finalChampm);
+        this.riotService.champions().then(response => {
+          console.log('ChampmData(Component)', champmData);
+          this.finalChampm = [];
+          this.champmData = champmData;
+          for (let n = 0; n < 3 && champmData.length; n++) {
+            console.log('final');
+
+            console.log('Champion ID', champmData[n].championId, 'Champions', this.champions);
+            this.finalChampm.push(this.champions[champmData[n].championId]);
+
+          }
+          console.log('Final Masteries', this.finalChampm);
+        });
       }, error => this.errorMessage = <string>error)
+
     );
   }
-/*
+
   getLeagueData(playerId: number): void {
     this.subscriptions.push(
       this.riotService.playerLeague(playerId).subscribe(leagueData => {
@@ -68,14 +74,14 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.dummyLeague = leagueData;
         do {
           if (this.dummyLeague.length < 3) {
-            this.dummyLeague.push([]);
+            this.dummyLeague.push(['UNRANKED']); // <-- CHECK IT
           }
         } while (this.dummyLeague.length < 3);
         console.log('Dummy league', this.dummyLeague);
       }, error => this.errorMessage = <string>error)
     );
   }
-*/
+
   ngOnDestroy() {
     this.subscriptions.forEach(subs => {
       console.log('Destroyed');

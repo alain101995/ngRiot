@@ -1,4 +1,6 @@
-<div *ngIf="champmData && finalChampm">
+
+<!-- -->
+<div *ngIf="champmData && champmData.length && finalChampm && dummyLeague">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -12,7 +14,6 @@
           alt="First slide">
         <div class="carousel-caption d-none d-md-block">
           <img src="assets/masteries/{{champmData[0].championLevel}}.png">
-          <!--h3>{{champmData[0].championPoints}}</h3-->
         </div>
       </div>
       <div class="carousel-item">
@@ -20,7 +21,6 @@
           alt="Second slide">
         <div class="carousel-caption d-none d-md-block">
           <img src="assets/masteries/{{champmData[1].championLevel}}.png">
-          <!--h3>{{champmData[1].championPoints}}</h3-->
         </div>
       </div>
       <div class="carousel-item">
@@ -28,7 +28,6 @@
           alt="Third slide">
         <div class="carousel-caption d-none d-md-block">
           <img src="assets/masteries/{{champmData[2].championLevel}}.png">
-          <!--h3>{{champmData[2].championPoints}}</h3-->
         </div>
       </div>
     </div>
@@ -42,7 +41,7 @@
     <span class="sr-only">Next</span>
   </a>
   </div>
-<!--
+
 <div class="container">
   <div class="row">
     <div class="col-md-4" *ngFor="let league of dummyLeague">
@@ -59,6 +58,4 @@
     </div>
   </div>
 </div>
--->
-
 </div>

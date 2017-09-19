@@ -1348,7 +1348,7 @@
         },
         "FiddleSticks": {
             "version": "6.24.1",
-            "id": "FiddleSticks",
+            "id": "Fiddlesticks",
             "key": "9",
             "name": "Fiddlesticks",
             "title": "the Harbinger of Doom",
@@ -1360,7 +1360,7 @@
                 "difficulty": 9
             },
             "image": {
-                "full": "FiddleSticks.png",
+                "full": "Fiddlesticks.png",
                 "sprite": "champion0.png",
                 "group": "champion",
                 "x": 288,

@@ -1,12 +1,11 @@
 # Remaining tasks
 - Show modal when a champion is clicked, add champion abilities.
 - Add design to all components.
-https://stackoverflow.com/questions/35475633/change-div-content-dynamically-on-ng-click-angularjs
 - Add progress bars on components
  USEFUL BACKGROUND https://css-tricks.com/perfect-full-page-background-image/
  - Check if data exist in textbox - navbar
  
-
+https://coursetro.com/posts/code/79/A-Quick-and-Easy-Angular-Carousel-in-a-Few-Minutes-(Angular-2-and-4+)
 # Current doubts
 
 - What's a Constructor
@@ -55,21 +54,9 @@ Hacer petición, si existe en la base de datos lo carga de la base de datos, si 
 Si es la misma petición, usar la que se encuentra en cache.
 Si se envía yellow flag actualizar request y base de datos.
 
-save data on cache using  'localStorage'
-
-localStorage.getItem
-
-var stored = localStorage['myKey'];
-if (stored) 
-myVar = JSON.parse(stored);
-else myVar = {a:'test', b: [1, 2, 3]};    
-
 Caso 1: Cachear peticion de riot con duración de 1 día, usuario hace busqueda y la cachea (cuando presiona el botón guarda la busqueda en caché)
 
 Caso 2: Usuario consulta datos cacheados del mismo día, Si existe en cache cargarlos localstorage.getItem(data)
-if (localStorage.getItem(data) === null) {
-  //...
-}
 
 Caso 3: Usuario hace consulta forzando petición riot (actualizando cache), Usuario presiona boton para actualizar realizar la request y la información del cache
 
