@@ -12,7 +12,7 @@
                     <div id="{{runes.id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
                         <div class="card-block">
                             <div *ngFor="let r of runes.runes | objectKeys">
-                                <div *ngFor="let runesProp of runesData.data | objectKeys">
+                                <div *ngFor="let runesProp of runesData?.data | objectKeys">
                                     <div *ngIf="runesProp.propKey == r.propKey">
                                        <!-- {{runesProp.name}} -->
                                         <img src="http://ddragon.leagueoflegends.com/cdn/7.18.1/img/rune/{{runesProp.image.full}}" title="{{runesProp.description}}">                                        

@@ -95,40 +95,44 @@ export class RiotService {
   }
   // -----------CHAMP MASTERIES---------
   champMasterie(playerId: number) {
-
-    if (!this.storedChampm[playerId]) {
-      this.loadChampm(playerId);
-    }
-    return this.storedChampm[playerId].asObservable();
-  }
-  private loadChampm(playerId: number) {
-    this.storedChampm[playerId] = new BehaviorSubject<any>({ champm: [] });
-    this.http
-      .get(`http://localhost:3000/api/champm/${playerId}`)
-      .map(response => response.json())
-      .toPromise()
-      .then(champm => {
-        console.log('Champm (Service)', champm);
-        this.storedChampm[playerId].next(champm);
-      });
-  }
+    
+        if (!this.storedChampm[playerId]) {
+          this.loadChampm(playerId);
+        }
+    
+        return this.storedChampm[playerId].asObservable();
+      }
+    
+      private loadChampm(playerId: number) {
+    
+        this.storedChampm[playerId] = new BehaviorSubject<any>({ champm: [] });
+        this.http
+          .get(`http://localhost:3000/api/champm/${playerId}`)
+          .map(response => response.json())
+          .toPromise()
+          .then(champm => {
+            this.storedChampm[playerId].next(champm);
+            console.log('Champm (Service)', champm);
+            
+          });
+      }
   // -----------PLAYER LEAGUE---------
   playerLeague(playerId: number) {
-
     if (!this.storedPlayerLeague[playerId]) {
       this.loadPlayerLeague(playerId);
     }
     return this.storedPlayerLeague[playerId].asObservable();
   }
+
   private loadPlayerLeague(playerId: number) {
     this.storedPlayerLeague[playerId] = new BehaviorSubject<any>({ league: [] });
     this.http
       .get(`http://localhost:3000/api/league/${playerId}`)
       .map(response => response.json())
       .toPromise()
-      .then(playerLeague => {
-        console.log('HEY', this.storedPlayerLeague[playerId]);
-        this.storedPlayerLeague[playerId].next(playerLeague);
+      .then(league => {
+        console.log('STORED PLAYER LEAGUE', this.storedPlayerLeague[playerId]);
+        this.storedPlayerLeague[playerId].next(league);
       });
   }
   // -----------PLAYER MATCHES---------
@@ -140,7 +144,7 @@ export class RiotService {
   }
 
   private loadPlayerMatches(accountId: number) {
-    this.storedPlayerMatches[accountId] = new BehaviorSubject<any>({matches: []});
+    this.storedPlayerMatches[accountId] = new BehaviorSubject<any>({ matches: [] });
     this.http
       .get(`http://localhost:3000/api/matches/${accountId}`)
       .map(response => response.json())
@@ -205,17 +209,17 @@ export class RiotService {
       .get(`assets/championsData.json`)
       .map(response => response.json())
       .toPromise();
-      /*
-        if (this.storedChampionsData) {
-      console.log('There are championsData ', this.storedChampionsData);
-      return this.storedChampionsData;
-    }
-    console.log('There are no championsData ', this.storedChampionsData);
-   return this.storedChampionsData = this.http
-      .get(`assets/championsData.json`)
-      .map(response => response.json())
-      .toPromise();
-      */
+    /*
+      if (this.storedChampionsData) {
+    console.log('There are championsData ', this.storedChampionsData);
+    return this.storedChampionsData;
+  }
+  console.log('There are no championsData ', this.storedChampionsData);
+ return this.storedChampionsData = this.http
+    .get(`assets/championsData.json`)
+    .map(response => response.json())
+    .toPromise();
+    */
   }
 
   championInfo(champion: string): Promise<any> {

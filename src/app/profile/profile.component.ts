@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         return;
       }
       this.getChampMasterie(player.id);
-      this.getLeagueData(player.id);
+      // this.getLeagueData(player.id);
       console.log('Player ID: ', player.id);
     });
     console.log('Current Player: ', this.riotService.currentPlayer);
@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   getChampMasterie(playerId: number): void {
     this.subscriptions.push(
       this.riotService.champMasterie(playerId).subscribe(champmData => {
-        console.log('ChampmData', champmData);
+        console.log('ChampmData(Component)', champmData);
         this.finalChampm = [];
         this.champmData = champmData;
         for (let n = 0; n < 3; n++) {
@@ -59,7 +59,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       }, error => this.errorMessage = <string>error)
     );
   }
-
+/*
   getLeagueData(playerId: number): void {
     this.subscriptions.push(
       this.riotService.playerLeague(playerId).subscribe(leagueData => {
@@ -75,7 +75,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       }, error => this.errorMessage = <string>error)
     );
   }
-
+*/
   ngOnDestroy() {
     this.subscriptions.forEach(subs => {
       console.log('Destroyed');

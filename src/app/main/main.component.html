@@ -5,7 +5,7 @@
             <h1 class="color-secondary"></h1>
             <div>
                 <div class="input-group">
-                    <input class="form-control form-control-lg" type="text" placeholder="Summoner Name" aria-label="Search" autofocus #summonerName>
+                    <input class="form-control form-control-lg" type="text" [(ngModel)]="sumName" name="sumName" placeholder="Summoner Name" aria-label="Search" autofocus #summonerName>
                     <!--div class="input-group-btn input-group-btn-realm">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">LAN</button>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -23,10 +23,9 @@
                         </div>
                     </div-->
                     <div class="input-group-btn input-group-btn-submit">
-                        <button class="btn btn-lg btn-outline-success my-2 my-sm-0" routerLink="profile" (click)="search(summonerName.value)" type="button">Search</button>
+                        <button [disabled]="!sumName" class="btn btn-lg btn-outline-success my-2 my-sm-0" routerLink="profile" (click)="search(summonerName.value)" type="button">Search</button>
                     </div>
                 </div>
-                <!--input type="hidden" name="realm" value="LAN"-->
             </div>
         </div>
     </div>
