@@ -18,7 +18,6 @@ export class MatchhistoryComponent implements OnInit, OnDestroy {
     private riotService: RiotService
   ) { }
   ngOnInit() {
-
     this.riotService.championsData().then(response => {
       this.champions = response;
       console.log('Response: ', this.champions);
@@ -36,7 +35,6 @@ export class MatchhistoryComponent implements OnInit, OnDestroy {
     if (!this.riotService.currentPlayer) {
       return;
     }
-
   }
 
   getMatchesData(accountId: number): void {

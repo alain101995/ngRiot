@@ -24,18 +24,17 @@ export class ChampionsComponent implements OnInit {
   }
 
   setChampionImage(championId: string, championName: string, championTitle: string) {
-
     this.championData['id'] = championId;
     this.championData['name'] = championName;
     this.championData['title'] = championTitle;
     this.setChampionSkills(championId);
     console.log('championData', this.championData);
-
   }
 
   setChampionSkills(champion: string) {
     this.riotService.championInfo(champion).then(response => {
       this.championSpells = [];
+      console.log('Respuesta', response.data);
 
       for (const spells of response.data[champion].spells) {
         this.championSpells.push(
@@ -45,7 +44,6 @@ export class ChampionsComponent implements OnInit {
           }
         );
       }
-
     });
   }
 

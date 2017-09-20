@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private riotService: RiotService, public nav: NavbarService) { }
 
   search(summonerName: string) {
-    this.riotService.playerId(summonerName).then(response => {
+    this.riotService.playerId(summonerName).subscribe(response => {
       this.riotService.onSearch(response);
       // console.log(response);
     });

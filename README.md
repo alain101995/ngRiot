@@ -1,13 +1,30 @@
 # Remaining tasks
-- Show modal when a champion is clicked, add champion abilities.
 - Add design to all components.
 - Add progress bars on components
  USEFUL BACKGROUND https://css-tricks.com/perfect-full-page-background-image/
- - Check if data exist in textbox - navbar
  
 https://coursetro.com/posts/code/79/A-Quick-and-Easy-Angular-Carousel-in-a-Few-Minutes-(Angular-2-and-4+)
-# Current doubts
 
+# MongoDB
+- Mongo Conexion Modules
+Mongoos https://www.npmjs.com/package/mongoose
+
+https://docs.mongodb.com/manual/tutorial/getting-started/#getting-started
+Mongod - Initializes mongo service
+db.inventory.find({}) 
+// Shows all collections
+db.inventory.find( {Object: property} )
+// Example: .find( { status: “D” })
+// db.inventory.find( { tags: ["red", "blank"] } )
+db = database
+inventory = database's name
+find = command
+- Update db
+db.collection.updateOne() ... updates one register from the collection
+db.collection.updateMany() ... updates many registers from the collection
+db.collection.replaceOne() ... replaces one register from the collection
+
+# Current doubts
 - What's a Constructor
 - Observables
 - Pipes
@@ -23,13 +40,11 @@ Bootstrap studio
 
 https://angular.io/tutorial/toh-pt1
 
+- Express Best Practices
+https://expressjs.com/en/advanced/best-practice-performance.html
+
 - Cheat Sheet
 https://angular.io/guide/cheatsheet
-
-- Popups 
-http://valor-software.com/ngx-bootstrap/#/modals
-https://github.com/ng2-ui/popup
-https://medium.com/@ladyleet/popups-modals-and-navigation-using-angular-material-2-components-in-your-angular-2-project-faf510dbcdee
 
 # Iterate on a JSON Object
 https://stackoverflow.com/questions/37046138/how-to-use-ngfor-with-object/37046743#37046743

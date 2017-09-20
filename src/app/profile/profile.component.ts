@@ -27,6 +27,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.riotService.champions().then(response => {
+      
       this.champions = this.riotService.championsMap; //this.riotService.championsMap;
       // console.log('Mapped champions: ', this.champions);
     });
@@ -53,11 +54,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.finalChampm = [];
           this.champmData = champmData;
           for (let n = 0; n < 3 && champmData.length; n++) {
-            console.log('final');
-
-            console.log('Champion ID', champmData[n].championId, 'Champions', this.champions);
+            // console.log('Champion ID', champmData[n].championId, 'Champions', this.champions);
             this.finalChampm.push(this.champions[champmData[n].championId]);
-
           }
           console.log('Final Masteries', this.finalChampm);
         });
@@ -74,7 +72,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.dummyLeague = leagueData;
         do {
           if (this.dummyLeague.length < 3) {
-            this.dummyLeague.push([]); // <-- CHECK IT
+            this.dummyLeague.push({tier: 'UNRANKED'});
           }
         } while (this.dummyLeague.length < 3);
         console.log('Dummy league', this.dummyLeague);
