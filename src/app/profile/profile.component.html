@@ -1,4 +1,3 @@
-
 <!-- -->
 <div *ngIf="champmData && champmData.length && finalChampm && dummyLeague">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -42,20 +41,20 @@
   </a>
   </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let league of dummyLeague">
-      <div *ngIf="league.length != 0; else unranked">
 
-        <div> <img src="assets/ranks/{{league.tier}}.png" />
-          <br>{{league.name}}<br>{{league.tier}}<br>{{league.queue}}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let league of dummyLeague">
+        <div *ngIf="league.length != 0; else unranked">
+          <div> <img src="assets/ranks/{{league.tier}}.png" />
+            <br>{{league.name}}<br>{{league.tier}}<br>{{league.queue}}
+          </div>
         </div>
+        <ng-template #unranked>
+          <img src="assets/ranks/UNRANKED.png" /> <br>
+          <p class="text-center">UNRANKED</p>
+        </ng-template>
       </div>
-      <ng-template #unranked>
-        <img src="assets/ranks/UNRANKED.png" /> <br>
-        <p class="text-center">UNRANKED</p>
-      </ng-template>
     </div>
   </div>
-</div>
 </div>

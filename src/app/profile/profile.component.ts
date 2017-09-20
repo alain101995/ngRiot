@@ -69,12 +69,12 @@ export class ProfileComponent implements OnInit, OnDestroy {
   getLeagueData(playerId: number): void {
     this.subscriptions.push(
       this.riotService.playerLeague(playerId).subscribe(leagueData => {
-        // console.log('League Data: ', leagueData);
+        console.log('League Data: ', leagueData);
         // this.leagueData = leagueData;
         this.dummyLeague = leagueData;
         do {
           if (this.dummyLeague.length < 3) {
-            this.dummyLeague.push(['UNRANKED']); // <-- CHECK IT
+            this.dummyLeague.push([]); // <-- CHECK IT
           }
         } while (this.dummyLeague.length < 3);
         console.log('Dummy league', this.dummyLeague);
