@@ -12,6 +12,8 @@ export class AppComponent {
   constructor(private riotService: RiotService, public nav: NavbarService) { }
 
   search(summonerName: string) {
+    console.log('summoner Name', summonerName);
+    
     this.riotService.playerId(summonerName).subscribe(response => {
       this.riotService.onSearch(response);
       // console.log(response);
